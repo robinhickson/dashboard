@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Web Dashboard Mock-up</title>
+    <link href="css/styles.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="gridContainer">
+    <header class="header">
+        <section>
+            <ol class="logoArea">
+                <li><h2>YOURapp</h2></li>
+                <li><a class="notificationsBell" href="#"><img  src="icons/icon-bell.svg" height="20" alt="notification icon"></a></li>
+                <li></li>
+                <li><img class = "avatar" src="images/member-2.jpg" alt="avatar member 2"></li>
+                <li>Ben Dover</li>
+
+            </ol>
+        </section>
+
+    </header>
+    <main class="mainContainer">
+        
+        <section class="searchArea">
+            <h1>Dashboard</h1>
+            <h4>Search Form</h4>
+
+        </section>
+        <section class="alertArea">
+            <h2>Alert</h2>
+
+        </section>
+        <section class="navArea">
+            <a href="#"><img class="icon icon-dash" src="icons/icon-dashboard.svg" height="40" alt="dashboard page icon"></a>
+            <a href="#"><img class="icon" src="icons/icon-members.svg" height="40" alt="members page icon"></a>
+            <a href="#"><img class="icon" src="icons/icon-visits.svg" height="40" alt="dashboard icon"></a>
+            <a href="#"><img class="icon" src="icons/icon-settings.svg" height="40" alt="settings page icon"></a>
+            
+
+        </section>
+
+        <section class="chartRegion">
+            <article class="lineChart">
+                <h2>TRAFFIC</h2>
+                <canvas id="trafficLineChart" height="200" width="300"></canvas>
+            </article>
+            <article class="barDonutChart">
+                <div class="barChart">
+                    <h2>DAILY TRAFFIC</h2>
+                    <canvas id="barChart" height="200" width="300"></canvas>
+                </div>
+                <div class="donutChart">
+                    <h2>MOBILE USERS</h2>
+                    <canvas id="donutChart" height="200" width="300"></canvas>
+                </div>
+
+            </article>
+        </section>
+        <section class="socialStatsArea">
+            <h2>Social Stats</h2>
+
+        </section>
+        <section class="newMembersArea">
+            <h2>New Members</h2>
+
+        </section>
+        <section class="messageArea">
+            <h2>Message User</h2>
+
+        </section>
+        <section class="newActivityArea">
+            <h2>New Activity</h2>
+
+        </section>
+        <section class="settingsArea">
+            <h2>Settings</h2>
+
+        </section>
+
+
+
+    </main>
+
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.js"></script>
+        <script type="module" src="JS/app.js"></script>
+    </div>
+</body>
+
+</html>

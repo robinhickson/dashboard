@@ -1,0 +1,33 @@
+/* ============================================= */
+
+
+/*              Media Queries                    */
+
+
+/* ============================================= */
+
+@media (min-width: $breakpointTablet) {
+    .container {
+        max-width: 1023px;
+        @include display-block-center;
+    }
+    .centered {
+        @include display-block-center;
+    }
+    .row {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: $breakpointDesktop) {
+    .container {
+        max-width: 1500px;
+        @include display-block-center;
+    }
+    .centered {
+        @include display-block-center;
+    }
+    .row {
+        flex-direction: row;
+    }
+}

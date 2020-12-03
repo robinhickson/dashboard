@@ -1,0 +1,51 @@
+/* ============================================= */
+
+
+/*              Typography                       */
+
+
+/* ============================================= */
+
+
+/* ============================================= */
+
+
+/*              Base styles                      */
+
+
+/* ============================================= */
+
+* {
+    font-family: $primary-font;
+    color: $secondary-color;
+    box-sizing: border-box;
+}
+
+p {
+    line-height: 1.45em;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+    padding: 5px;
+}
+
+h1 {
+    font-size: $font-h1;
+}
+
+h2 {
+    font-size: $font-h2;
+}
+
+.header *{
+    color:whitesmoke;
+}
+/*          Typography structure                 */
+
+
+/* ============================================= */
