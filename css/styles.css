@@ -370,10 +370,17 @@ li {
 }
 
 h1 {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin: 0;
   font-size: 90%;
 }
 
 h2 {
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-top: 1rem;
+  margin-bottom: 0;
   font-size: 90%;
 }
 
@@ -381,22 +388,9 @@ h2 {
   color: whitesmoke;
 }
 
-/*          Typography structure                 */
-/* ============================================= */
 /* ============================================= */
 /*              Charts                            */
 /* ============================================= */
-.barChart {
-  width: 100%;
-  border-top: solid 1px rgba(0, 0, 0, 0.2);
-  border-right: solid 1px rgba(0, 0, 0, 0.2);
-}
-
-.donutChart {
-  width: 100%;
-  border: solid 1px rgba(0, 0, 0, 0.2);
-}
-
 /* ============================================= */
 /*              Grid System                      */
 /* ============================================= */
@@ -420,9 +414,10 @@ h2 {
 
 .chartRegion {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-area: charts;
+  grid-template-columns: 1fr 1fr;
   justify-content: center;
-  grid-template-areas: "traffic " "bar" "donut";
+  grid-template-areas: "traffic traffic " "bar donut";
 }
 
 .searchArea {
@@ -430,7 +425,6 @@ h2 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  margin-left: 2rem;
 }
 
 .alertArea {
@@ -442,9 +436,10 @@ h2 {
   align-items: baseline;
   margin: 1rem;
   background-color: rgba(32, 13, 100, 0.8);
-  width: 90%;
+  width: 95%;
   padding-left: 1rem;
   padding-right: 1rem;
+  border-radius: 5px;
 }
 
 .navArea {
@@ -454,10 +449,6 @@ h2 {
   justify-content: space-around;
   background-color: rgba(32, 13, 100, 0.8);
   padding: 1rem;
-}
-
-.chartRegion {
-  grid-area: charts;
 }
 
 .socialStatsArea {
@@ -482,10 +473,15 @@ h2 {
 
 .barChart {
   grid-area: bar;
+  border-right: solid 1px rgba(0, 0, 0, 0.2);
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
 .donutChart {
   grid-area: donut;
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
 .logoArea {

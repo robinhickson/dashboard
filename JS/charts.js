@@ -24,6 +24,9 @@ const ctx = document.getElementById('trafficLineChart');
                     'rgba(154, 162, 255, 1)',
                 borderWidth: 1,
                 lineTension: 0,
+                pointRadius: 4,
+                pointBorderWidth: 2,
+                pointBackgroundColor: 'rgba(255,255,255,1)',
             }]
         },
         options: {
@@ -330,10 +333,10 @@ export function mobileUsersDonutChart() {
                 legend: {
                     display: true,
                     position: 'right',
-                    align: 'center',
+                    
                     labels:{
-                        boxWidth: 20,
-                        fontSize: 20,
+                        boxWidth: 10,
+                        fontSize: 10,
                         }
                 },
                 title: {

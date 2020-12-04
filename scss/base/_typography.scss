@@ -36,17 +36,21 @@ li {
 }
 
 h1 {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 0;
     font-size: $font-h1;
 }
 
 h2 {
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-top:1rem;
+    margin-bottom: 0;
     font-size: $font-h2;
 }
 
 .header *{
     color:whitesmoke;
 }
-/*          Typography structure                 */
 
-
-/* ============================================= */
