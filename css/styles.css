@@ -406,25 +406,23 @@ h2 {
   grid-template-areas: "header" "main";
 }
 
-.mainContainer {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "nav" "search" "alert" "charts" "social" "members" "message" "activity" "settings";
-}
-
-.chartRegion {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-areas: "traffic " "bar " "donut ";
-}
-
 .header {
   grid-area: header;
   background-color: rgba(76, 34, 234, 0.8);
 }
 
 .mainContainer {
+  display: grid;
+  grid-template-columns: 1fr;
   grid-area: main;
+  grid-template-areas: "nav" "search" "alert" "charts" "social" "members" "message" "activity" "settings";
+}
+
+.chartRegion {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  grid-template-areas: "traffic " "bar" "donut";
 }
 
 .searchArea {
@@ -437,6 +435,16 @@ h2 {
 
 .alertArea {
   grid-area: alert;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  justify-self: center;
+  align-items: baseline;
+  margin: 1rem;
+  background-color: rgba(32, 13, 100, 0.8);
+  width: 90%;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 .navArea {
@@ -532,6 +540,16 @@ h2 {
   height: 30px;
   background-position: right;
   border-radius: 5px;
+}
+
+.alertArea * {
+  color: whitesmoke;
+}
+
+.alertMessage {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
 }
 
 /* ============================================= */

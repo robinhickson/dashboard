@@ -16,13 +16,20 @@
   "main";
 }
 
+//gridContainer grid items
 
+.header {
+  grid-area: header; 
+  background-color: $primary-color-light;
+ 
+}
 .mainContainer {
   
   display: grid;
   grid-template-columns: 1fr ;
-
-  // grid-template-rows: ;
+  grid-area: main;
+ 
+  
   grid-template-areas:
   "nav" 
   "search"
@@ -38,29 +45,14 @@
 .chartRegion {
   display: grid;
   grid-template-columns: 1fr;
- 
-  // grid-template-rows: ;
+  justify-content: center;
   grid-template-areas: 
   "traffic "
-  "bar "
-  "donut "
+  "bar"
+  "donut"
   ;
 }
 
-//gridContainer grid items
-
-.header {
-  grid-area: header;
- 
-  background-color: $primary-color-light;
- 
- 
-}
-
-.mainContainer{
-  grid-area: main;
- 
-}
 
 //mainContainer grid items
 
@@ -74,7 +66,17 @@
 
 .alertArea{
   grid-area: alert;
-}
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  justify-self: center;
+  align-items: baseline;
+  margin: 1rem;
+  background-color: $primary-color;
+  width:90%;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  }
 
 .navArea{
   grid-area: nav;
@@ -183,5 +185,18 @@ flex-grow: 0.3;
   height: 30px;
   background-position: right;
   border-radius: 5px;
+  
+}
+
+//Alert Area
+
+.alertArea *{
+  color: $white;
+}
+
+.alertMessage{
+  display: flex;
+  flex-flow: row wrap;
+  align-items: baseline;
   
 }
