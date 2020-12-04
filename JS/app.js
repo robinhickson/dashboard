@@ -66,9 +66,17 @@ const allMembers=[
 --------------------------------------------*/  
 
 let newMemberText = document.querySelector('.newMember');
-let newMemberEntry = allMembers[4];
+for (let i=0; i<allMembers.length; i++){
+    if (allMembers[i].status === 'Newbie'){
+        let newMemberEntry = allMembers[i];    
+        newMemberText.innerHTML += `<img src="${newMemberEntry.avatar}" alt="avatar"><h1>${newMemberEntry.name}</h1><h2>${newMemberEntry.email}</h2><p>${newMemberEntry.joinDate}`;
+           }
+   
+    };
 
-newMemberText.innerHTML = `<img src="${newMemberEntry.avatar}" alt="avatar"><h1>${newMemberEntry.name}</h1><h2>${newMemberEntry.email}</h2><p>${newMemberEntry.joinDate}`;
+
+
+
 
 /* ----------  CHART AREA - CHART.JS --------
 --------------------------------------------*/
