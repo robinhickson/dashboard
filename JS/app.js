@@ -4,22 +4,23 @@
 /* ----------  INTERACTIVITY --------
 --------------------------------------------*/
 
-const closeAlert = () =>{
-    const getAlertArea = document.querySelector('.alertArea');
-    getAlertArea.addEventListener('click', (e) => {
+const getListener = document.querySelector('.gridContainer');
+const getAlertArea = document.querySelector('.alertArea');
+getListener.addEventListener('click', (e) => {
+    if(e.target.className === 'closeIcon'){
         
-        if(e.target.className === 'closeIcon'){
-            if(getAlertArea.style.display === "flex"){
-                getAlertArea.style.display="none";
-            }
-            else{
-                getAlertArea.style.display="flex";    
-            }
+        if(getAlertArea.style.display === "none" || getAlertArea.style.display === ""){
+            getAlertArea.style.display="flex";
         }
-    });
-};
+        else {
+            getAlertArea.style.display="none";    
+        }
 
-closeAlert();
+    }
+});
+   
+
+
 
 
 /* ----------  CHART AREA - CHART.JS --------
