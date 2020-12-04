@@ -69,6 +69,7 @@
   display:flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  margin-left: 2rem;
 }
 
 .alertArea{
@@ -167,11 +168,20 @@ height: 2rem;
  .siteSearch{
   display:flex;
   justify-content: flex-end;
-  width:90%;  
+  width:90%;
+  padding: 5px;
+  background-color: $secondary-color-light; 
+  opacity: 0.5; 
 }
 
  #siteSearch{
-  flex-grow: 1;
+flex-grow: 0.3;
   padding: 5px;
-  background-image: url('icons/icon-search.svg');
+  background-image: url('/icons/icon-search.svg');
+  background-color: #fff;
+  background-repeat: no-repeat;
+  height: 30px;
+  background-position: right;
+  border-radius: 5px;
+  
 }
