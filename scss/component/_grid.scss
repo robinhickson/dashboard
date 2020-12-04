@@ -9,8 +9,8 @@
 
   display: grid;
   grid-template-columns: 1fr ;
- 
-  // grid-template-rows: ;
+  justify-content: center;
+background-color: $white;
   grid-template-areas: 
   "header"
   "main";
@@ -36,10 +36,8 @@
   "alert"    
   "charts"
   "social"
-  "members"
-  "message"
-  "activity"
-  "settings";
+  "membersActivity"
+ ;
 }
 
 .chartRegion {
@@ -90,20 +88,21 @@
 
 .socialStatsArea{
   grid-area: social;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  margin: 0 2rem;
 }
 
-.newMembersArea{
-  grid-area: members;
+.membersActivity{
+  grid-area: membersActivity;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;  
+  width: 100%;
 }
 
-.newActivityArea{
-  grid-area: activity;
-}
 
-.settingsArea{
-  grid-area: settings;
-}
-  
 //chartRegion grid items
 
 .lineChart{
@@ -203,6 +202,111 @@ height: 2rem;
 .alertMessage{
   display: flex;
   flex-flow: row wrap;
-  align-items: baseline;
+  align-items: baseline;  
+}
+
+//Social Stats Area
+
+.socialWidgets{
+  flex-grow:1;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-around;
+
+}
+
+.socialWidgets h2{
+color: $primary-color-light;
+opacity: 0.8;
+margin:0;
+
+}
+
+.socialWidgets h1{
+  font-size: 150%;  
+  }
+
+.socialCo{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;  
+  flex-grow: 1;
+  background-color: $secondary-color-light; 
+  border: solid $secondary-color 1px;
+  border-radius: 3px;
+  margin: 2rem;
+  padding: 0.5rem;
+}
+
+.getTwitterData, .getFacebookData, .getGooglePlusData{
+  flex-grow: 1;
+  display: flex;  
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;   
   
 }
+
+.containerSocialIcon{
+  border-radius: 50%;
+  background-color: $primary-color;
+  margin: 1rem;
+  padding: 0.5rem;
+
+}
+
+.socialIcon{
+  padding: 0.2rem;
+ 
+}
+
+//Members and Activity Area
+
+.membersMessages{
+display:flex;
+flex-flow: column nowrap;
+flex-grow:1;
+}
+
+  .newMembersArea{
+    display: flex;
+    flex-flow: column nowrap;
+    border-right: solid 1px rgba(0,0,0,0.2);
+    border-top: solid 1px rgba(0,0,0,0.2);
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+    
+  }
+      .newMember{
+        display:flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        align-items: baseline;
+      }
+
+  .messageArea{
+    display: flex;
+    flex-flow: column nowrap;
+    border-right: solid 1px rgba(0,0,0,0.2);
+    border-top: solid 1px rgba(0,0,0,0.2);
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+  }
+
+.activitySettings{
+  display:flex;
+  flex-flow: column nowrap;
+  flex-grow:1;
+}
+
+  .newActivityArea{
+    display: flex;
+    flex-flow: column nowrap;
+    border-top: solid 1px rgba(0,0,0,0.2);
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+  }
+
+  .settingsArea{
+    display: flex;
+    flex-flow: column nowrap;
+    border-top: solid 1px rgba(0,0,0,0.2);
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+  }
