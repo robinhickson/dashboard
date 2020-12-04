@@ -429,6 +429,9 @@ h2 {
 
 .searchArea {
   grid-area: search;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
 }
 
 .alertArea {
@@ -503,11 +506,23 @@ h2 {
   opacity: 0.5;
 }
 
-.icon:active, .icon-dash {
+.icon:hover, .icon-dash {
   opacity: 1;
   padding: 2px;
   border-left: solid #63cc82 3px;
   border-radius: 10%;
+}
+
+.siteSearch {
+  display: flex;
+  justify-content: flex-end;
+  width: 90%;
+}
+
+#siteSearch {
+  flex-grow: 1;
+  padding: 5px;
+  background-image: url("icons/icon-search.svg");
 }
 
 /* ============================================= */
