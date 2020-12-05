@@ -7,17 +7,10 @@
 const getListener = document.querySelector('.gridContainer');
 const getAlertArea = document.querySelector('.alertArea');
 getListener.addEventListener('click', (e) => {
-    if(e.target.className === 'closeIcon'){
-        
-        if(getAlertArea.style.display === "none" || getAlertArea.style.display === ""){
-            getAlertArea.style.display="flex";
-        }
-        else {
-            getAlertArea.style.display="none";    
-        }
-
+    if (e.target.className === 'closeIcon') {
+      getAlertArea.style.display = "none";
     }
-});
+  });
  
 
 
@@ -42,7 +35,7 @@ const allMembers=[
     {
         name:'Eillean Inn',
         avatar:'images/member-1.jpg',
-        email:'eilleaninn@gargle.com',
+        email:'eilleaninn@gamble.com',
         joinDate:'23/10/2020',
         status: 'Newbie'
     },
@@ -69,7 +62,10 @@ let newMemberText = document.querySelector('.newMember');
 for (let i=0; i<allMembers.length; i++){
     if (allMembers[i].status === 'Newbie'){
         let newMemberEntry = allMembers[i];    
-        newMemberText.innerHTML += `<img src="${newMemberEntry.avatar}" alt="avatar"><h1>${newMemberEntry.name}</h1><h2>${newMemberEntry.email}</h2><p>${newMemberEntry.joinDate}`;
+        newMemberText.innerHTML += `<div class="aNewMember"><img class="newMemberAvatar" src="${newMemberEntry.avatar}" alt="avatar">
+        <div class="newMemberNameContact">
+        <h3>${newMemberEntry.name}</h3><h4>${newMemberEntry.email}</h4></div>
+        <p class="date">${newMemberEntry.joinDate}</p></div>`;
            }
    
     };
