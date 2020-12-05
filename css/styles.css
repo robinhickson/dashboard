@@ -364,6 +364,11 @@ a {
   text-decoration: none;
 }
 
+ol, ul {
+  padding: 0;
+  margin: 0;
+}
+
 li {
   list-style: none;
   padding: 5px;
@@ -401,24 +406,10 @@ h4 {
 /* ============================================= */
 /*              Grid System                      */
 /* ============================================= */
-.gridContainer {
-  display: grid;
-  grid-template-columns: 1fr;
-  justify-content: center;
-  background-color: whitesmoke;
-  grid-template-areas: "header" "main";
-}
-
-.header {
-  grid-area: header;
-  background-color: rgba(76, 34, 234, 0.8);
-}
-
 .mainContainer {
   display: grid;
   grid-template-columns: 1fr;
-  grid-area: main;
-  grid-template-areas: "nav" "search" "alert" "charts" "social" "membersActivity";
+  grid-template-areas: "header" "nav" "search" "alert" "charts" "social" "membersActivity";
 }
 
 .chartRegion {
@@ -427,6 +418,11 @@ h4 {
   grid-template-columns: 1fr 1fr;
   justify-content: center;
   grid-template-areas: "traffic traffic " "bar donut";
+}
+
+.header {
+  grid-area: header;
+  background-color: rgba(76, 34, 234, 0.8);
 }
 
 .searchArea {
@@ -445,7 +441,6 @@ h4 {
   align-items: baseline;
   margin: 1rem;
   background-color: rgba(32, 13, 100, 0.8);
-  width: 95%;
   padding-left: 1rem;
   padding-right: 1rem;
   border-radius: 5px;
@@ -465,7 +460,6 @@ h4 {
   display: flex;
   flex-flow: column nowrap;
   justify-content: space-around;
-  margin: 0 2rem;
 }
 
 .membersActivity {
@@ -473,7 +467,6 @@ h4 {
   display: flex;
   flex-flow: row nowrap;
   justify-content: center;
-  width: 100%;
 }
 
 .lineChart {
@@ -496,24 +489,27 @@ h4 {
 .logoArea {
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;
+  justify-content: space-around;
   align-items: center;
-  padding: 1rem;
-  height: 2rem;
 }
 
-.logoArea li:nth-child(1) {
+.appTitle {
   flex-grow: 1;
 }
 
-.logoArea li:nth-child(3) {
-  height: 2rem;
-  border-right: solid 1px rgba(119, 119, 119, 0.6);
+#appTitle1 {
+  color: whitesmoke;
+  font-weight: 700;
+}
+
+#appTitle2 {
+  color: rgba(221, 221, 221, 0.6);
+  font-weight: 300;
 }
 
 .avatar {
   border-radius: 50%;
-  height: 2rem;
+  height: 40px;
 }
 
 .icon {
@@ -558,47 +554,38 @@ h4 {
 }
 
 .socialWidgets {
-  flex-grow: 1;
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-around;
 }
 
-.socialWidgets h2 {
-  color: rgba(76, 34, 234, 0.8);
-  opacity: 0.8;
-  margin: 0;
-}
-
-.socialWidgets h1 {
-  font-size: 300%;
+#socialStatsHead {
+  padding-bottom: 1rem;
+  margin-right: auto;
 }
 
 .socialCo {
   display: flex;
   flex-flow: row nowrap;
   justify-content: flex-start;
-  flex-grow: 1;
   background-color: rgba(221, 221, 221, 0.6);
   border: solid rgba(119, 119, 119, 0.6) 1px;
   border-radius: 3px;
-  margin: 2rem;
   padding: 0.5rem;
 }
 
 .getTwitterData, .getFacebookData, .getGooglePlusData {
-  flex-grow: 1;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
+  align-items: flex-start;
+  padding-left: 1rem;
 }
 
 .containerSocialIcon {
   align-self: center;
   border-radius: 50%;
   background-color: rgba(32, 13, 100, 0.8);
-  margin: 1rem;
   padding: 0.5rem;
 }
 
@@ -606,16 +593,16 @@ h4 {
   padding: 0.2rem;
 }
 
-.membersMessages {
+.membersMessages, .activitySettings {
   display: flex;
   flex-flow: column nowrap;
+  padding-top: 1rem;
   flex-grow: 1;
 }
 
 .newMembersArea {
   display: flex;
   flex-flow: column nowrap;
-  flex-grow: 1;
   border-right: solid 1px rgba(0, 0, 0, 0.2);
   border-top: solid 1px rgba(0, 0, 0, 0.2);
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
@@ -642,7 +629,7 @@ h4 {
   border-bottom: solid 5px rgba(221, 221, 221, 0.6);
 }
 
-.newMemberAvatar {
+.newMemberAvatar, .recentMemberAvatar {
   border-radius: 50%;
   margin: 0.5rem;
   height: 50%;
@@ -660,25 +647,32 @@ h4 {
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
-.activitySettings {
+.recentActivityArea {
   display: flex;
   flex-flow: column nowrap;
-  flex-grow: 1;
-}
-
-.newActivityArea {
-  display: flex;
-  flex-flow: column nowrap;
-  flex-grow: 1;
+  border-right: solid 1px rgba(0, 0, 0, 0.2);
   border-top: solid 1px rgba(0, 0, 0, 0.2);
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
 }
 
-.settingsArea {
+.recentActivity {
   display: flex;
   flex-flow: column nowrap;
-  border-top: solid 1px rgba(0, 0, 0, 0.2);
-  border-bottom: solid 1px rgba(0, 0, 0, 0.2);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.aRecentActivity {
+  display: flex;
+  width: 95%;
+  flex-flow: row nowrap;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1rem;
+  padding-right: 1.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border-bottom: solid 5px rgba(221, 221, 221, 0.6);
 }
 
 /* ============================================= */
