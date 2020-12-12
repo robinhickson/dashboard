@@ -1,7 +1,49 @@
 /* ============================================= */
 /*              Buttons                          */
 /* ============================================= */
+.custom-buttons-wrapper{
+margin-left: 4rem;
+}
 
+.switch{
+  padding-bottom: 1rem;
+  color: $primary-color;
+}
 
+button {
+    margin: 1rem;
+    background: #11f31d;
+    color: $white;
+    font-weight: $font-bold;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    width:90%;
+    background-color: $primary-color;
+    padding: 1rem;
+    
+  }
   
-  
+  button:hover,button:focus {
+    margin: 1rem;
+    box-shadow: $secondary-color 5px 2px ;
+    color: whitesmoke;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    width:90%;
+    background-color: $primary-color;
+  }
+
+.settings-buttons{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+   
+}
+#save, #cancel{
+    width:36%;
+}
+
+#cancel{
+    background-color: $secondary-color;
+}
+

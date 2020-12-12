@@ -66,6 +66,15 @@ h4{
     color: $primary-color;
 }
 
+.sectionHead{//h2 for section title
+    // display: inline-block;
+    padding-bottom: 1em;
+    margin-right: auto;
+    font-size: calc(0.25rem + 1.5vmax);
+    font-weight: $font-bold;
+   }
+
+   
 
 .header *{
     color:$white;

@@ -5,127 +5,248 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Web Dashboard Mock-up</title>
-    
+
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css" />
     <link href="css/styles.css" rel="stylesheet">
-    
+
 </head>
 
 <body>
-      
-    <main class="mainContainer">
+
+    <div class="container">
         <section class="header">
-        
             <ol class="logoArea">
                 <li class="appTitle"><span id="appTitle1">Your</span><span id="appTitle2">App</span></li>
-                <li><a class="notificationsBell" href="#"><img  src="icons/icon-bell.svg" height="20" alt="notification icon"></a></li>
+                <li id="notificationsBell"><a href="#"></a></li>                
+                <ul class=windowMessageContainer></ul>
                 <li></li>
-                <li><img class = "avatar" src="images/member-2.jpg" alt="avatar member 2"></li>
-                <li>Mike Klass</li>
+                <li><img class="avatar" src="images/member-2.jpg" alt="avatar member 2" ></li>
+                <li><span class="memberName">Mike Klass</span></li>
             </ol>
-       
         </section>
+
+        
         <section class="searchArea">
             <h1>Dashboard</h1>
-           <form class="siteSearch"><input type="search" name="search" id="siteSearch" placeholder="Search YOURapp"></form>
-          
-
+            <form class="siteSearch"><input type="search" name="search" id="siteSearch" placeholder="Search YOURapp">
+            </form>
         </section>
 
         <section class="alertArea">
-            <div class="alertMessage"><h2>Alert!!&nbsp;&nbsp;</h2>
-            <p id="alertMessage">This is an alert message, to make sure you're still alert...</p>
+            <div class="alertMessage">
+                <span id="alert">Alert!!&nbsp;&nbsp;</span>
+                <span id="alertText"><div id="notesWindow"></div></span>
             </div>
-            <a href="#" ><img class="closeIcon" src="icons/icon-close.svg" alt="close button" height="20"></a>
+            <a href="#"><img class="closeIcon" src="icons/icon-close.svg" alt="close button" height="20"></a>
         </section>
 
-        <section class="navArea">
-            <a href="#"><img class="icon icon-dash" src="icons/icon-dashboard.svg" height="40" alt="dashboard page icon"></a>
+        <nav class="navArea">
+            <a href="#"><img class="icon icon-dash" src="icons/icon-dashboard.svg" height="40"
+                    alt="dashboard page icon"></a>
             <a href="#"><img class="icon" src="icons/icon-members.svg" height="40" alt="members page icon"></a>
             <a href="#"><img class="icon" src="icons/icon-visits.svg" height="40" alt="dashboard icon"></a>
             <a href="#"><img class="icon" src="icons/icon-settings.svg" height="40" alt="settings page icon"></a>
-            
+        </nav>
 
-        </section>
+        <section class="chartRegion">                           
+                <div class="tabs">
+                    <span class="titleTraffic sectionHead">TRAFFIC</span>
+                    <span><a href="#" class="hourly tab"> Hourly</a></span>
+                    <span><a href="#" class="daily tab">Daily</a></span>
+                    <span><a href="#" class="weekly tab activeTab">Weekly</a></span>
+                    <span><a href="#" class="monthly tab">Monthly</a></span>
+                </div>
+        
+            <div class="lineWrapper">                
+                <div class="lineChart">
+                    <canvas id="trafficLineChart" height=125></canvas>
+                </div>
+            </div>
 
-        <section class="chartRegion">
-            <article class="lineChart">
-                <h2>TRAFFIC</h2>
-                <canvas id="trafficLineChart" height="100" width="300"></canvas>
-            </article>
-            
-            <article class="barChart">
-                <h2>DAILY TRAFFIC</h2>
-                <canvas id="barChart" height="100" width="200"></canvas>
-            </article>
-            <article class="donutChart">
-                <h2>MOBILE USERS</h2>
-                <canvas id="donutChart" height="100" width="200"></canvas>
-            </article>
+            <div class="barDonutWrapper">
+                <div class="barChart">
+                    <span class="titleTraffic sectionHead">DAILY TRAFFIC</span>
+                    <canvas id="barChart" height=150></canvas>
+                </div>                
+                <div class="donutChart">
+                    <span class="titleTraffic sectionHead">MOBILE USERS</span>
+                    <canvas id="donutChart" height=150></canvas>
+                </div>
 
+            </div>
         </section>
 
         <section class="socialStatsArea">
-            <h2 id="socialStatsHead">SOCIAL STATS</h2>
+            <h2 class= "sectionHead">SOCIAL STATS</h2>
             <div class="socialWidgets">
                 <article class="socialCo">
-                    <div class="containerSocialIcon"><img  class="socialIcon" src="icons/icon-twitter.svg" height="30" alt="twitter icon"></div>
+                    <div class="socialIconWrapper">
+                        <svg class="socialSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+                            <path d="M120 31.9c-3.7 1.9-7.5 3.4-11.8 3.8 4.4-3.1 7.5-8 9-13.8-4 3.1-8.4 5-13.1 6.1-3.4-5-9-8-14.6-8-11.2 0-20.6 11.1-20.6 25.3 0 1.9.3 3.8.6 5.7-17.1-1.1-32.1-11.1-42.4-26.4-1.9 3.8-2.8 8-2.8 12.6 0 8.8 3.7 16.5 9 21.1-3.4 0-6.5-1.1-9.3-3.1v.4c0 12.3 7.2 22.2 16.5 24.5-1.9.4-3.4.8-5.3.8-1.2 0-2.5 0-3.7-.4 2.5 10 10.3 17.2 19 17.6-6.9 6.9-15.9 10.7-25.5 10.7-1.6 0-3.4 0-5-.4 9 7.3 19.9 11.5 31.5 11.5 37.7 0 58.3-38.3 58.3-71.6v-3.1c4-3.7 7.4-8.3 10.2-13.3z" style="fill:#FFFFFF"/>
+                        </svg>
+                    </div>
                     <div class="getTwitterData">
                         <span class="socialName">Twitter</span>
                         <span class="socialData">10,345</span>
                     </div>
                 </article>
+
                 <article class="socialCo">
-                    <div class="containerSocialIcon"><img  class="socialIcon" src="icons/icon-facebook.svg" height="30" alt="facebook icon"></div>
+                    <div class="socialIconWrapper">
+                        <svg class ="socialSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
+                            <path d="M93.4 54.3H78V43.9c0-3.9 2.5-4.8 4.3-4.8h10.8V22l-14.9-.1c-16.5 0-20.3 12.8-20.3 21v11.4h-9.6V72h9.6v50H78V72h13.6l1.8-17.7z" style="fill:#FFFFFF"/>
+                          </svg>
+                        
+                    </div>
                     <div class="getFacebookData">
-                        <span>Facebook</span>
+                        <span class="socialName">Facebook</span>
                         <span class="socialData">8,739</span>
                     </div>
                 </article>
+
                 <article class="socialCo">
-                    <div class="containerSocialIcon"><img class="socialIcon" src="icons/icon-google-plus.svg" height="30" alt="google plus icon"></div> 
+                    <div class="socialIconWrapper">                        
+                        <svg class="socialSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" >
+                            <path d="M73.6 100.7c0-.9 0-1.6-.3-2.5-.3-.6-.3-1.6-.6-2.2-.3-.6-.6-1.3-.9-2.2-.6-.6-.9-1.3-1.2-1.9-.3-.6-.9-.9-1.6-1.9-.6-.6-1.2-1.3-1.6-1.6-.3-.3-.9-.9-1.9-1.6-.9-.6-1.6-1.3-1.9-1.3-.3 0-.9-.6-1.9-1.3-.9-.6-1.6-1.3-1.9-1.3h-3.1c-2.2 0-4.4 0-6.2.3-2.2.3-4.4.6-6.6 1.6-2.2.6-4.1 1.6-5.9 2.8s-3.1 2.5-4.1 4.4-1.6 4.1-1.6 6.6c0 2.8.6 5.3 2.2 7.2 1.6 2.2 3.4 3.8 5.6 5 2.2 1.3 4.7 2.2 7.2 2.8 2.5.6 5 .9 7.5.9s4.7-.3 6.9-.6c2.2-.6 4.1-1.3 5.9-2.5 1.9-.9 3.4-2.5 4.4-4.4 1-1.6 1.6-3.8 1.6-6.3zm-7.2-52.2c0-2.5-.3-5-.9-7.9-.6-2.8-1.6-5.3-2.8-7.9-1.2-2.5-2.8-4.7-5-6.3S53 24 50.5 24c-3.8 0-6.6 1.3-8.8 4.1-2.2 2.8-3.1 6-3.1 10.1 0 1.9.3 3.8.6 6s1.2 4.1 2.2 6.3c.9 2.2 2.2 4.1 3.4 5.7s2.8 3.1 4.7 4.1c1.9.9 3.8 1.6 5.9 1.6 3.8 0 6.6-1.3 8.4-3.8 1.7-2.4 2.6-5.5 2.6-9.6zm-7.8-28.6h26.2l-8.1 4.7h-8.1c2.8 1.9 5 4.4 6.6 7.5s2.5 6.6 2.5 10.1c0 2.8-.3 5.7-1.2 7.9-.9 2.2-2.2 4.1-3.4 5.7-1.2 1.3-2.5 2.8-4.1 3.8-1.2 1.3-2.5 2.5-3.4 3.8s-1.2 2.5-1.2 4.1c0 .9.3 2.2.9 3.1s1.6 1.9 2.5 2.8c.9.9 2.2 1.9 3.4 2.8 1.2.9 2.5 2.2 3.8 3.5 1.2 1.3 2.5 2.5 3.4 4.1.9 1.6 1.9 3.1 2.5 5 .6 1.9.9 4.1.9 6.3 0 6.6-2.8 12.3-8.4 17-5.9 5.3-14.4 7.9-25.3 7.9-2.5 0-4.7-.3-7.2-.6s-5-.9-7.2-1.9c-2.5-.9-4.7-2.2-6.6-3.5-1.9-1.3-3.4-3.1-4.7-5.3-.9-1.9-1.6-4.1-1.6-6.9 0-2.5.6-5 2.2-8.2 1.2-2.5 3.1-4.7 5.6-6.6 2.5-1.9 5.6-3.5 8.8-4.4 3.1-.9 6.3-1.6 9.4-2.2 2.8-.3 5.9-.6 9.1-.9-2.6-3.6-3.9-6.5-3.9-9.3v-1.6c0-.3.3-.9.3-1.3s.3-.6.6-1.3.3-.9.3-1.3c-1.6.3-3.1.3-4.1.3-5.9 0-10.9-1.9-15.3-6s-6.3-8.8-6.3-14.8c0-5.7 1.9-10.7 5.6-15.1 3.8-4.1 8.4-6.9 14.1-8.2 3.9-.7 7.7-1 11.4-1zm62.2 15.4v7.9h-15.3v15.4h-7.8V43.2H82.4v-7.9h15.3V19.9h7.8v15.4h15.3z" style="fill:#FFFFFF"/>
+                        </svg>
+                    </div>
                     <div class="getGooglePlusData">
-                        <span>Google +</span>
+                        <span class="socialName">Google +</span>
                         <span class="socialData">2,530</span>
-                    </div>         
+                    </div>
                 </article>
             </div>
         </section>
-        <div class="membersActivity">
+
+        <section class="membersActivity">
             <div class="membersMessages">
                 <section class="newMembersArea">
-                    <h2>NEW MEMBERS</h2>
+                    <h2 class= "sectionHead">NEW MEMBERS</h2>
                     <div class="newMember">
-                        
+
                     </div>
 
                 </section>
                 <section class="messageArea">
-                    <h2>MESSAGE USER</h2>
-
+                    <h2 class= "sectionHead">MESSAGE USER</h2>
+                    <form class="messageForm">    
+                        <p class="hint">* is required field</p>
+                        <div class="messageRecipient">
+                            <label for="recipient">User Name: *</label>
+                            <div class="autocompleteWrapper">
+                                <input type="text" id="recipient" name="user-recipient" placeholder="Search for user" required >
+                                <select id="dropdown"></select>
+                            </div>
+                        </div>
+                        <div class="userMessageArea">
+                            <label for="userMessage">Message: *</label>
+                            <textarea id="userMessage" name="userMessage" style="resize:none" cols="30" rows="10"  required wrap="hard" placeholder="Message to user..." maxlength="300"></textarea>
+                            <button class="button-send" id="send" >SEND</button>
+                        </div>   
+                    </form>
                 </section>
             </div>
+
             <div class="activitySettings">
                 <section class="recentActivityArea">
-                    <h2>RECENT ACTIVITY</h2>
+                    <h2 class= "sectionHead">RECENT ACTIVITY</h2>
                     <div class="recentActivity">
-                        
+
                     </div>
                 </section>
                 <section class="settingsArea">
-                    <h2>SETTINGS</h2>
+                    <h2 class= "sectionHead">SETTINGS</h2>
+                   
+                    <div class="custom-buttons-wrapper">
+                        
+                        <div class="custom" >
+                            <div class="switch">Send Email Notifications</div> 
+                            <label class="switch-light switch-ios" onclick="" >
+                            <input id="email-light-switch" type="checkbox">
+                            <strong>
+                            </strong>
+                            <span>
+                            <span>Off</span>
+                            <span>On</span>
+                            <a></a>
+                            </span>
+                        </label>
+                        </div>
+                        <br>
+                        <div class="custom">
+                            <div class="switch">Set Profile to Public</div>
+                            <label class="switch-light switch-ios" onclick="">
+                            <input id="profile-light-switch" type="checkbox">
+                            <strong>
+                            </strong>
+                            <span>
+                            <span>Off</span>
+                            <span>On</span>
+                            <a></a>
+                            </span>
+                        </label>
+                        </div>
+                        <br>
+                    </div>
+                    <select class="timezone-field" id="timezone">
+                        <option disabled selected>Select Timezone</option>
+                        <option value="-12:00">(GMT -12:00) Eniwetok, Kwajalein</option>
+                        <option value="-11:00">(GMT -11:00) Midway Island, Samoa</option>
+                        <option value="-10:00">(GMT -10:00) Hawaii</option>
+                        <option value="-09:50">(GMT -9:30) Taiohae</option>
+                        <option value="-09:00">(GMT -9:00) Alaska</option>
+                        <option value="-08:00">(GMT -8:00) Pacific Time (US &amp; Canada)</option>
+                        <option value="-07:00">(GMT -7:00) Mountain Time (US &amp; Canada)</option>
+                        <option value="-06:00">(GMT -6:00) Central Time (US &amp; Canada), Mexico City</option>
+                        <option value="-05:00">(GMT -5:00) Eastern Time (US &amp; Canada), Bogota, Lima</option>
+                        <option value="-04:50">(GMT -4:30) Caracas</option>
+                        <option value="-04:00">(GMT -4:00) Atlantic Time (Canada), Caracas, La Paz</option>
+                        <option value="-03:50">(GMT -3:30) Newfoundland</option>
+                        <option value="-03:00">(GMT -3:00) Brazil, Buenos Aires, Georgetown</option>
+                        <option value="-02:00">(GMT -2:00) Mid-Atlantic</option>
+                        <option value="-01:00">(GMT -1:00) Azores, Cape Verde Islands</option>
+                        <option value="+00:00">(GMT) Western Europe Time, London, Lisbon, Casablanca</option>
+                        <option value="+01:00">(GMT +1:00) Brussels, Copenhagen, Madrid, Paris</option>
+                        <option value="+02:00">(GMT +2:00) Kaliningrad, South Africa</option>
+                        <option value="+03:00">(GMT +3:00) Baghdad, Riyadh, Moscow, St. Petersburg</option>
+                        <option value="+03:50">(GMT +3:30) Tehran</option>
+                        <option value="+04:00">(GMT +4:00) Abu Dhabi, Muscat, Baku, Tbilisi</option>
+                        <option value="+04:50">(GMT +4:30) Kabul</option>
+                        <option value="+05:00">(GMT +5:00) Ekaterinburg, Islamabad, Karachi, Tashkent</option>
+                        <option value="+05:50">(GMT +5:30) Bombay, Calcutta, Madras, New Delhi</option>
+                        <option value="+05:75">(GMT +5:45) Kathmandu, Pokhara</option>
+                        <option value="+06:00">(GMT +6:00) Almaty, Dhaka, Colombo</option>
+                        <option value="+06:50">(GMT +6:30) Yangon, Mandalay</option>
+                        <option value="+07:00">(GMT +7:00) Bangkok, Hanoi, Jakarta</option>
+                        <option value="+08:00">(GMT +8:00) Beijing, Perth, Singapore, Hong Kong</option>
+                        <option value="+08:75">(GMT +8:45) Eucla</option>
+                        <option value="+09:00">(GMT +9:00) Tokyo, Seoul, Osaka, Sapporo, Yakutsk</option>
+                        <option value="+09:50">(GMT +9:30) Adelaide, Darwin</option>
+                        <option value="+10:00">(GMT +10:00) Eastern Australia, Guam, Vladivostok</option>
+                        <option value="+10:50">(GMT +10:30) Lord Howe Island</option>
+                        <option value="+11:00">(GMT +11:00) Magadan, Solomon Islands, New Caledonia</option>
+                        <option value="+11:50">(GMT +11:30) Norfolk Island</option>
+                        <option value="+12:00">(GMT +12:00) Auckland, Wellington, Fiji, Kamchatka</option>
+                        <option value="+12:75">(GMT +12:45) Chatham Islands</option>
+                        <option value="+13:00">(GMT +13:00) Apia, Nukualofa</option>
+                        <option value="+14:00">(GMT +14:00) Line Islands, Tokelau</option>
+                       
+                    </select>
+                        <div class="settings-buttons" >
+                        <button class="button-save" id="save">SAVE</button>
+                        <button class="button-cancel" id="cancel">CANCEL</button>
+                        </div>
                 </section>
             </div>
-        </div>
-
-
-    </main>
+        </section>        
+    </div>
 
     <script type="module" src="JS/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.js"></script>
-       
-   
+
+
 </body>
 
 </html>

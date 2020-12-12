@@ -3,3 +3,112 @@
 /*              Forms                            */
 /* ============================================= */
 
+//Site Search section
+
+
+.siteSearch{
+    display:flex;
+    justify-content: flex-end;
+    width:90%;
+    padding: 5px;
+    background-color: $secondary-color-light; 
+    opacity: 0.5; 
+  }
+  
+  
+   #siteSearch{
+    flex-grow: 0.3;
+    padding: 5px;
+    background-image: url('/icons/icon-search.svg');
+    background-color: $secondary-color-light; 
+    color: $primary-color; 
+    background-repeat: no-repeat;
+    height: 30px;
+    background-position: right;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid $secondary-color;
+  }
+
+  #siteSearch:focus{
+    border: 3px solid $primary-color-light; 
+
+  }
+
+
+
+////User forms
+
+
+.messageForm{
+    margin-left: 1rem; 
+    width: 90%; 
+  }
+  
+  .messageRecipient>label,.userMessageArea>label, .messageForm>p{
+    color: $primary-color;
+  }
+  
+  #recipient, #userMessage{
+    margin: 1rem;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    width:90%;
+    background-color: $secondary-color-light; 
+    color: $primary-color; 
+    
+  }
+
+
+  
+  #recipient:focus, #userMessage:focus{
+   outline: none;
+   border: 2px solid $primary-color;
+  }
+  
+  input:hover, textarea:hover {
+    box-shadow: $secondary-color 2px 2px 5px ;
+  }
+  
+  
+  .hint{
+    font-size: 75%;
+  }
+
+  .autocompleteWrapper{
+    display: flex;
+    flex-flow: column nowrap;
+          
+
+  }
+
+  #dropdown{
+      width: 50%;
+      border: 1px solid $secondary-color;
+      border-radius: 5px;
+      background-color: $secondary-color-light; 
+      color: $primary-color;
+      font-style: italic; 
+      display: none;
+      margin: 1rem auto;
+  }
+
+  //settings forms
+
+.timezone-field{
+    margin: 1rem;
+    border: 1px solid $secondary-color;
+    border-radius: 5px;
+    width:85%;
+    background-color: $secondary-color-light; 
+    color: $primary-color; 
+    align-self: center;
+    height: 4rem;
+  }
+
+  .timezone-field:focus{
+    outline: none;
+    border: 2px solid $primary-color;
+  }
+
+  

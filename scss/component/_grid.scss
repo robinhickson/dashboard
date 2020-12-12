@@ -7,39 +7,38 @@
 
 
 
-.mainContainer {
+.container {
   
   display: grid;
-  grid-template-columns: 1fr ;
- 
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(80px, auto);  
+  row-gap: 1rem;
+  column-gap: 5px;
   grid-template-areas:
-  "header"
-  "nav" 
-  "search"
-  "alert"    
-  "charts"
-  "social"
-  "membersActivity"
- ;
+  "header "
+  "search "   
+  "alert "
+  "nav "    
+  "charts "
+  "social "
+  "members " 
 }
 
-.chartRegion {
-  display: grid;
+.chartRegion {  
   grid-area: charts;
-  grid-template-columns: 1fr 1fr;
-  justify-content: center;
-  grid-template-areas: 
-  "traffic traffic "
-  "bar donut"
-  ;
+  display: flex;
+  flex-flow: column nowrap;  
 }
 
 
-//mainContainer grid items
+
+//mainContainer flex items/grid areas
 
 .header {
   grid-area: header;
-  background-color: $primary-color-light;   
+  background-color: $primary-color-light;
+  padding-left: 1rem;
+  padding-right: 1rem;   
 }
 
 .searchArea{
@@ -47,6 +46,7 @@
   display:flex;
   flex-flow: row nowrap;
   justify-content: space-between;
+  align-items: center;
   
 }
 
@@ -55,14 +55,14 @@
   display: flex;
   flex-flow: row nowrap;
   justify-content: space-between;
-  justify-self: center;
-  align-items: baseline;
-  margin: 1rem;
+  align-items: center;
+  justify-self: center;  
   background-color: $primary-color;
- 
-  padding-left: 1rem;
-  padding-right: 1rem;
+  width: 90%;
+  flex-grow:1; 
+  padding:1rem;
   border-radius: 5px;
+
   }
 
 .navArea{
@@ -82,36 +82,18 @@
   
 }
 
+
 .membersActivity{
-  grid-area: membersActivity;
+  grid-area: members;
   display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;  
+  flex-flow: row wrap;
+  justify-content: center;
+  margin-bottom: 2rem;  
  }
 
 
-//chartRegion grid items
-
-.lineChart{
-  grid-area: traffic;
-}
-
-.barChart{
-  grid-area: bar;
-  border-right: solid 1px rgba(0,0,0,0.2);
-  border-top: solid 1px rgba(0,0,0,0.2);
-  border-bottom: solid 1px rgba(0,0,0,0.2);
  
-}
-
-.donutChart{
-  grid-area: donut;
-  border-top: solid 1px rgba(0,0,0,0.2);
-  border-bottom: solid 1px rgba(0,0,0,0.2);
- 
-}
- 
- //Grid and Flex items
+ //Header/Logo section
 
 
 
@@ -120,6 +102,7 @@
   flex-flow: row nowrap;
   justify-content: space-around;
   align-items:center;
+  height: 100%;
   }
 
   .appTitle{
@@ -128,20 +111,68 @@
 
     #appTitle1{
       color: $white;
-      font-weight: $font-bold;  
+      font-weight: $font-bold;
+      font-size: 150%; 
       }
     #appTitle2{
       color: $secondary-color-light;
       font-weight: $font-light;  
+      font-size: 150%; 
       }
-  
+
+.notificationsBell{
+  cursor: pointer; 
+
+}
+
+.notificationsBell:hover{
+animation-name: rocker;
+animation-duration: 2s;
+animation-iteration-count: infinite;
+animation-timing-function: linear;
+animation-fill-mode: forwards;
+
+}
 
 .avatar{
 border-radius: 50%;
-height: 40px;
+width:40px;
+height:40px;
 }
 
- //NavArea
+.logoArea li:nth-child(4){ // spacer
+  border-right: solid $primary-color 1px;
+  height: 50%;
+  opacity: 50%;
+ }
+
+ .memberName{
+   font-weight: $font-bold;
+   font-size: 120%;
+ }
+
+ .windowMessageContainer{
+  display: flex;
+  flex-flow: column nowrap;
+  position: absolute;
+  top: 10px;
+  width: 200px;
+  z-index:99;
+ }
+
+ .windowMessage{
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  background-color: $primary-color;
+  z-index:99;
+  border-radius: 5px;
+  border: solid $white 1px;
+  padding: 2px;
+  margin-right: 1rem;
+ }
+
+ //Nav section
 
  .icon{
   opacity:0.5;
@@ -156,44 +187,23 @@ height: 40px;
 
 }
 
-//Search area
 
 
- .siteSearch{
-  display:flex;
-  justify-content: flex-end;
-  width:90%;
-  padding: 5px;
-  background-color: $secondary-color-light; 
-  opacity: 0.5; 
-}
-
-
- #siteSearch{
-  flex-grow: 0.3;
-  padding: 5px;
-  background-image: url('/icons/icon-search.svg');
-  background-color: #fff;
-  background-repeat: no-repeat;
-  height: 30px;
-  background-position: right;
-  border-radius: 5px;
-  
-}
-
-//Alert Area
+//Alert section
 
 .alertArea *{
   color: $white;
+  font-size: calc(0.5rem + 1vmax);
+  font-weight: $font-bold;
 }
 
-.alertMessage{
-  display: flex;
-  flex-flow: row wrap;
-  align-items: baseline;  
+#alertText{
+  font-weight: $font-light;
+ 
 }
 
-//Social Stats Area
+
+//Social Stats section
 
 .socialWidgets{
   
@@ -202,60 +212,65 @@ height: 40px;
   justify-content:space-around;
 }
 
-#socialStatsHead{
- padding-bottom: 1rem;
- margin-right: auto;
-}
+
 
 .socialCo{
   display: flex;
   flex-flow: row nowrap;
-  justify-content: flex-start;  
+  flex-grow: 1;
+  justify-content: space-around;
+  align-items: center;  
   background-color: $secondary-color-light; 
   border: solid $secondary-color 1px;
   border-radius: 3px;
-   padding: 0.5rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
 }
 
-.getTwitterData, .getFacebookData, .getGooglePlusData{
-  display: flex;  
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: flex-start;
-  padding-left: 1rem;   
-  
+.getTwitterData, .getFacebookData, .getGooglePlusData{  
+  padding-right: 1.5em;
+  padding-left: 1.5rem;
+  font-weight: $font-bold;
 }
 
-.containerSocialIcon{
+.socialIconWrapper{
   align-self: center;
+  min-width: 40px;  
+}
+
+.socialSVG{ 
+  width: 100%;
   border-radius: 50%;
   background-color: $primary-color;
-  padding: 0.5rem;
-
+  margin-left: 0.5rem;
 }
 
-.socialIcon{
-  padding: 0.2rem;
- 
+.socialName{
+  font-size: calc(0.25rem + 1.5vmax);
+  color: $primary-color;
 }
 
-// //Members and Activity Area
+.socialData{
+  font-size: calc(0.25em + 3vmax);
+}
+// //Members and Activity section
 
 .membersMessages, .activitySettings{
 display:flex;
 flex-flow: column nowrap;
-padding-top: 1rem;
-flex-grow:1;
+flex-grow: 1;
+
 }
 
 // //New Members area
   .newMembersArea{
     display: flex;
     flex-flow: column nowrap;
-    // flex-grow:1;
+   
     border-right: solid 1px rgba(0,0,0,0.2);
     border-top: solid 1px rgba(0,0,0,0.2);
-    border-bottom: solid 1px rgba(0,0,0,0.2);
+   
     
   }
       .newMember{
@@ -269,47 +284,41 @@ flex-grow:1;
       .aNewMember{
         display:flex;
         width: 95%;
-        flex-flow: row nowrap;
-        flex-grow:1;
-        justify-content: center;
+        flex-flow: row wrap;
+        
+        justify-content: flex-start;
         align-items: center;
         padding-left: 1rem;
         padding-right: 1.5rem;
         margin-left: 1rem;
         margin-right: 1rem;
-        border-bottom: solid 5px $secondary-color-light;
+        border-bottom: solid 1px $secondary-color-light;
         
       }
 
       .newMemberAvatar, .recentMemberAvatar{
         border-radius: 50%;
         margin:0.5rem;
-        height: 50%;
+        height: 40px;
       }
 
       .date{
         margin-left:auto;        
       }
 
-//Message Area
-.messageArea{
-  display: flex;
-  flex-flow: column nowrap;
-  border-right: solid 1px rgba(0,0,0,0.2);
-  border-top: solid 1px rgba(0,0,0,0.2);
-  border-bottom: solid 1px rgba(0,0,0,0.2);
-}
+      .emailMember{
+        color: $primary-color-light;
+      }
 
 //       //Recent activity area
 
 .recentActivityArea{
   display: flex;
   flex-flow: column nowrap;
-  // flex-grow:1;
+  justify-content: flex-start;
+  align-content: flex-start;
   border-right: solid 1px rgba(0,0,0,0.2);
   border-top: solid 1px rgba(0,0,0,0.2);
-  border-bottom: solid 1px rgba(0,0,0,0.2);
-  
 }
     .recentActivity{
       display:flex;        
@@ -322,26 +331,99 @@ flex-grow:1;
     .aRecentActivity{
       display:flex;
       width: 95%;
-      flex-flow: row nowrap;
+      flex-flow: row wrap;
       
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       padding-left: 1rem;
       padding-right: 1.5rem;
       margin-left: 1rem;
       margin-right: 1rem;
-      border-bottom: solid 5px $secondary-color-light;
+      border-bottom: solid 1px $secondary-color-light;
       
     }
 
+    .recentActivityNameActivity{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+.nameTitle{
+    font-weight: $font-bold;
+}
+
+.truncMessageOut{  
+  font-weight: $font-bold;
+  margin-left: auto;
+  color: $secondary-color;  
+}
+
+.fullMessageOut{
+  font-weight: $font-bold;
+  color: $primary-color-light;
+  margin-left: auto;
+}
+
+
+    .profileLink{
+       margin-left:auto;
+       font-size: 200%;        
+       font-weight: $font-bold;
+    }
+
+.readMore{
+  cursor: pointer;
+}
+
+
+//Message Area --- see forms
+
+.messageArea{ 
+  display: flex;
+  flex-flow: column nowrap;
+  border-right: solid 1px rgba(0,0,0,0.2);
+  border-top: solid 1px rgba(0,0,0,0.2);
+  align-items: center;
+
+}
 
 
 
+// Settings area --- see forms
 
+  .settingsArea{
+    display: flex;
+    flex-flow: column nowrap;
+    border-top: solid 1px rgba(0,0,0,0.2);
+    flex-grow: 1;
+    justify-content: space-between;
+  }
 
-//   .settingsArea{
-//     display: flex;
-//     flex-flow: column nowrap;
-//     border-top: solid 1px rgba(0,0,0,0.2);
-//     border-bottom: solid 1px rgba(0,0,0,0.2);
-//   }
+  
+
+  //Animation bell icon on hover
+  @keyframes rocker{
+    0% {}
+    5% { transform: rotate(-30deg);}
+    10% {}
+    15% { transform: rotate(30deg);}
+    20% {}
+    25% { transform: rotate(-30deg);}
+    30% {}
+    35% { transform: rotate(30deg);}
+    40% {}
+    45% { transform: rotate(-30deg);}
+    50% {}
+    55% { transform: rotate(30deg);}
+    60% {}
+    65% { transform: rotate(-30deg);}
+    70% {}
+    75% { transform: rotate(30deg);}
+    80% {}
+    85% { transform: rotate(-30deg);}
+    90% {}
+    95% { transform: rotate(30deg);}
+   100% {}
+  }

@@ -72,7 +72,7 @@ const ctx = document.getElementById('trafficLineChart');
 };
 
 export function webTrafficChartDaily() {
-    const ctx = document.getElementById('myTrafficChart');
+    const ctx = document.getElementById('trafficLineChart');
         new Chart(ctx, {
             type: 'line',        
             data: {
@@ -85,6 +85,9 @@ export function webTrafficChartDaily() {
                         'rgba(154, 162, 255, 1)',
                     borderWidth: 1,
                     lineTension: 0,
+                    pointRadius: 4,
+                    pointBorderWidth: 2,
+                    pointBackgroundColor: 'rgba(255,255,255,1)',
                 }]
             },
             options: {
@@ -130,7 +133,7 @@ export function webTrafficChartDaily() {
 };
 
 export function webTrafficChartHourly() {
-        const ctx = document.getElementById('myTrafficChart');
+        const ctx = document.getElementById('trafficLineChart');
             new Chart(ctx, {
                 type: 'line',        
                 data: {
@@ -143,6 +146,9 @@ export function webTrafficChartHourly() {
                             'rgba(154, 162, 255, 1)',
                         borderWidth: 1,
                         lineTension: 0,
+                        pointRadius: 4,
+                        pointBorderWidth: 2,
+                        pointBackgroundColor: 'rgba(255,255,255,1)',
                     }]
                 },
                 options: {
@@ -188,7 +194,7 @@ export function webTrafficChartHourly() {
 };
 
 export function webTrafficChartMonthly() {
-            const ctx = document.getElementById('myTrafficChart');
+            const ctx = document.getElementById('trafficLineChart');
                 new Chart(ctx, {
                     type: 'line',        
                     data: {
@@ -201,6 +207,9 @@ export function webTrafficChartMonthly() {
                                 'rgba(154, 162, 255, 1)',
                             borderWidth: 1,
                             lineTension: 0,
+                            pointRadius: 4,
+                            pointBorderWidth: 2,
+                            pointBackgroundColor: 'rgba(255,255,255,1)',
                         }]
                     },
                     options: {

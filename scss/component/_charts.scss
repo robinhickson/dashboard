@@ -5,4 +5,68 @@
 
 
 
+//chartRegion section
+
+.tabs{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: flex-end;
+    align-items: flex-end;
+    margin-right: 1rem;
+  }
+  
+  .tab{
+    margin-right: 1rem;
+    padding: 10px;
+  }
+  
+  .activeTab{
+    background-color: $success;
+    padding: 10px;
+    margin-left: 2px;
+    border-radius: 25%;
+  }
+  
+  
+  .titleTraffic{
+    padding-left: 2rem;
+    padding-bottom: 0;
+  }
+  
+  .barDonutWrapper{
+    display: flex;
+    flex-flow: row wrap;
+  }
+  
+  .lineWrapper{
+    display: flex;
+    flex-flow: row nowrap;
+  }
+  
+  
+  .lineChart{
+    flex-grow: 1;
+    position: relative;
+    width: 200px;
+     
+  }
+  
+  .barChart{
+    flex-grow: 1;
+    position: relative;
+    width: 300px;  
+    border-right: solid 1px rgba(0,0,0,0.2);
+    border-top: solid 1px rgba(0,0,0,0.2);
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+   
+  }
+  
+  .donutChart{
+    flex-grow: 1;
+    position: relative;
+    width: 300px;  
+    border-top: solid 1px rgba(0,0,0,0.2);
+    border-bottom: solid 1px rgba(0,0,0,0.2);
+   
+  }
 
