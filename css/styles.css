@@ -580,7 +580,6 @@ h4 {
 .logoArea li:nth-child(4) {
   border-right: solid rgba(32, 13, 100, 0.8) 1px;
   height: 50%;
-  opacity: 50%;
 }
 
 .memberName {
@@ -593,8 +592,9 @@ h4 {
   flex-flow: column nowrap;
   border-top: solid 1px rgba(0, 0, 0, 0.2);
   border-top: none;
-  position: absolute;
+  position: fixed;
   top: 10px;
+  right: 30%;
   width: 200px;
   z-index: 99;
 }
@@ -1319,6 +1319,10 @@ button:hover, button:focus {
   .navArea > a {
     margin-bottom: 2rem;
   }
+
+  .windowMessageContainer {
+    width: 400px;
+  }
 }
 @media (min-width: 1024px) {
   .container {
@@ -1330,6 +1334,14 @@ button:hover, button:focus {
   .socialSVG {
     width: 80%;
     max-width: 110px;
+  }
+
+  .windowMessageContainer {
+    flex-flow: row wrap;
+    width: 600px;
+    position: absolute;
+    right: 20%;
+    top: 20px;
   }
 }
 

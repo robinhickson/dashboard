@@ -1,5 +1,5 @@
 //Project 7 Web Dashboard
-
+/*jshint esversion: 6 */
 /* ----------  CHART AREA - CHART.JS --------
 --------------------------------------------*/
 
@@ -27,7 +27,6 @@ let alertAreaText = document.getElementById('alertText');
 let emailSwitch = document.getElementById('email-light-switch');
 let profileSwitch = document.getElementById('profile-light-switch');
 let timezoneSelect = document.getElementById('timezone');
-let timeZone;
 let settingsObject = JSON.parse(localStorage.getItem('settings'));
 
 if(settingsObject){ // if there is localStorage, load it
@@ -117,7 +116,7 @@ getListener.addEventListener('click', (e) => {
                     saveSettingsLocalStorage();
                 } else if (targetClass==='button-cancel'){
                     clearSettingsLocalStorage();
-                } else {return null}
+                } else {return null;}
             
 });
 
@@ -218,7 +217,7 @@ function notifications(){
     alertAreaText.textContent = selectedNotifications.pop();//get message from notifications list (and remove from array)
                                                             // and display message in alert box   
         
-};
+}
 
 function notificationsWindow(){//get the expanded notifications window
     selectedNotifications.push(alertAreaText.textContent);//add the alert message back to notifications list and remove alert area
@@ -230,9 +229,9 @@ function notificationsWindow(){//get the expanded notifications window
         <span>${selectedNotifications[i]}</span>
         <a href="#"><img class="messageCloseIcon" src="icons/icon-close.svg" alt="close button" height="20"></a>
         </li>`;
-        } ;                
+        }                
 
-    };
+    }
 
 
 /* ----------  New Member and Recent Activity widget --------
@@ -253,7 +252,7 @@ function memberActivityWidget(){
         for (let j=0; j<firstFourSelector.length; j++){ // from each selected member object, randomly select a message and display truncated
             let fourSelected = firstFourSelector[j];
             let getUserMessage =  (Math.floor(Math.random()* fourSelected.userMessageOut.length));
-            let fullMessage = fourSelected.userMessageOut[getUserMessage]
+            let fullMessage = fourSelected.userMessageOut[getUserMessage];
             let truncMessage = fullMessage.substring(0, 30);
             
     
@@ -372,7 +371,7 @@ function searchUser(){
 
 
 function saveSettingsLocalStorage(){
-    settingsObject = {email: emailSwitch.checked, profile: profileSwitch.checked, timezone: timezoneSelect.selectedIndex}    
+    settingsObject = {email: emailSwitch.checked, profile: profileSwitch.checked, timezone: timezoneSelect.selectedIndex};   
     localStorage.setItem('settings', JSON.stringify(settingsObject));
    
 }

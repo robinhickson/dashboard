@@ -139,8 +139,7 @@ animation-fill-mode: forwards;
 .logoArea li:nth-child(4){ // spacer
   border-right: solid $primary-color 1px;
   height: 50%;
-  opacity: 50%;
- }
+   }
 
  .memberName{
    font-weight: $font-bold;
@@ -150,10 +149,12 @@ animation-fill-mode: forwards;
  .windowMessageContainer{
   @include flex-column-nowrap-border-top;
   border-top: none;
-  position: absolute;
+  position: fixed;
   top: 10px;
+  right: 30%;
   width: 200px;
   z-index:99;
+ 
  }
 
  .windowMessage{
