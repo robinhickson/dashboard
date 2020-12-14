@@ -2,3 +2,70 @@
 /* ============================================= */
 /*              Images                           */
 /* ============================================= */
+
+//Avatars
+
+.avatar{
+    border-radius: 50%;
+    width:40px;
+    height:40px;
+    }
+
+    .newMemberAvatar, .recentMemberAvatar{
+        border-radius: 50%;
+        margin:0.5rem;
+        height: 40px;
+      }
+
+      
+ //Nav section
+
+ .icon{
+    opacity:0.5;
+  
+   }
+  
+   .icon:hover, .icon-dash{
+    opacity: 1;
+    padding: 2px;
+    border-left: solid $success 3px;
+    border-radius: 10%;
+  
+  }
+
+  // social area
+  
+.socialSVG{ 
+    width: 100%;
+    border-radius: 50%;
+    background-color: $primary-color;
+    margin-left: 0.5rem;
+  }
+
+  
+  //Animation bell icon on hover
+  @keyframes rocker{
+    0% {}
+    5% { transform: rotate(-30deg);}
+    10% {}
+    15% { transform: rotate(30deg);}
+    20% {}
+    25% { transform: rotate(-30deg);}
+    30% {}
+    35% { transform: rotate(30deg);}
+    40% {}
+    45% { transform: rotate(-30deg);}
+    50% {}
+    55% { transform: rotate(30deg);}
+    60% {}
+    65% { transform: rotate(-30deg);}
+    70% {}
+    75% { transform: rotate(30deg);}
+    80% {}
+    85% { transform: rotate(-30deg);}
+    90% {}
+    95% { transform: rotate(30deg);}
+   100% {}
+  }
+
+  

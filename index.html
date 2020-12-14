@@ -8,7 +8,7 @@
 
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css" />
+    <!-- <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/css-toggle-switch@latest/dist/toggle-switch.css" /> -->
     <link href="css/styles.css" rel="stylesheet">
 
 </head>
@@ -68,11 +68,12 @@
             <div class="barDonutWrapper">
                 <div class="barChart">
                     <span class="titleTraffic sectionHead">DAILY TRAFFIC</span>
-                    <canvas id="barChart" height=150></canvas>
+                    <div class="chartWrapper"><canvas id="barChart" height=150></canvas></div>
+                    
                 </div>                
                 <div class="donutChart">
                     <span class="titleTraffic sectionHead">MOBILE USERS</span>
-                    <canvas id="donutChart" height=150></canvas>
+                    <div class="chartWrapper"><canvas id="donutChart" height=150></canvas></div>
                 </div>
 
             </div>
@@ -97,8 +98,7 @@
                     <div class="socialIconWrapper">
                         <svg class ="socialSVG" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140">
                             <path d="M93.4 54.3H78V43.9c0-3.9 2.5-4.8 4.3-4.8h10.8V22l-14.9-.1c-16.5 0-20.3 12.8-20.3 21v11.4h-9.6V72h9.6v50H78V72h13.6l1.8-17.7z" style="fill:#FFFFFF"/>
-                          </svg>
-                        
+                          </svg>                        
                     </div>
                     <div class="getFacebookData">
                         <span class="socialName">Facebook</span>

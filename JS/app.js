@@ -20,29 +20,33 @@ const getListener = document.querySelector('body');
 const getAlertArea = document.querySelector('.alertArea');
 const getTabs = document.querySelectorAll('.tab');
 const selectedNotifications =[];
-const user = document.getElementById("recipient");
-const message = document.getElementById("userMessage");
+const user = document.getElementById('recipient');
+const message = document.getElementById('userMessage');
 let getNotificationsBell = document.getElementById('notificationsBell');
 let alertAreaText = document.getElementById('alertText');
 let emailSwitch = document.getElementById('email-light-switch');
 let profileSwitch = document.getElementById('profile-light-switch');
 let timezoneSelect = document.getElementById('timezone');
+let timeZone;
+let settingsObject = JSON.parse(localStorage.getItem('settings'));
+
+if(settingsObject){ // if there is localStorage, load it
+   
+    emailSwitch.checked = settingsObject.email;
+    profileSwitch.checked = settingsObject.profile;
+    timezoneSelect.selectedIndex = settingsObject.timezone;    
+}
 
 
-
-
-
-
-
-/* ----------  Global Event Listener --------
+/* ----------  Global Event Listener (body) and dependent conditionals (functionality)--------
 --------------------------------------------*/ 
 
 getListener.addEventListener('click', (e) => {
     const clickTarget = e.target;
     let targetClass = clickTarget.className; //remember the target  class names
+    
 
-
-        //--------Text read more toggle---------
+        //--------Text 'read more' toggle---------
         if (targetClass === "readMore"){
 
             let fullSelect = clickTarget.parentNode.previousElementSibling;
@@ -99,6 +103,7 @@ getListener.addEventListener('click', (e) => {
                         webTrafficChartWeekly();
                     }
                 } else if (targetClass==='button-send') {
+                    e.preventDefault();
                     if (user.value === "" && message.value === "") {
                         alert("Please fill out user and message fields before sending");
                         } else if (user.value === "" ) {
@@ -108,7 +113,12 @@ getListener.addEventListener('click', (e) => {
                         } else {
                         alert(`Message successfully sent to: ${user.value}`);
                         }   
-                }  else {return null}
+                } else if (targetClass==='button-save'){
+                    saveSettingsLocalStorage();
+                } else if (targetClass==='button-cancel'){
+                    clearSettingsLocalStorage();
+                } else {return null}
+            
 });
 
 
@@ -127,7 +137,7 @@ const allMembers=[
         lastActive: '',
         profileLink: '<a class="readMore">\></a>',
         userMessageIn: [''],
-        userMessageOut: ['Well, it\'s really not that difficult! You should strip out the old code and start again...', 'I\'m hoping to get the new Playstation5 for Christmas!', 'One day I hope to run my own software development company!'],
+        userMessageOut: ['When I started coding, we didn\'t even have electricity.', 'I\'m hoping to get the new Playstation5 for Christmas!', 'One day I hope to run my own software development company!'],
     },
     {
         name:'Klaus Akt',
@@ -139,7 +149,7 @@ const allMembers=[
         lastActive: '',
         profileLink: '<a class="readMore">\></a>',
         userMessageIn: [''],
-        userMessageOut: ['When I started coding, we didn\'t even have electricity.', 'My father was a mathematician and programmer, so it\'s in the blood.', 'You know, I\'ve long been a fan of the WIlliam Gibson school of cyberpunk.'],
+        userMessageOut: ['Well, it\'s really not that difficult! You should strip out the old code and start again...', 'My father was a mathematician and programmer, so it\'s in the blood.', 'You know, I\'ve long been a fan of the WIlliam Gibson school of cyberpunk.'],
     },
     {
         name:'Eillean Inn',
@@ -148,7 +158,7 @@ const allMembers=[
         joinDate:'23/10/2020',
         status: 'Newbie',
         activity: '',
-        userMessageOut: ['Everything you say and do is just so yesterday :)', 'I am so fed up with my job as a top lawyer at an international law firm - so I\'ve decided to become a developer.', 'Which do you prefer, Flexbox or Grid?'],
+        userMessageOut: ['Everything you say and do is just so yesterday :)', 'I am so fed up with my job - so I\'ve decided to become a developer.', 'Which do you prefer, Flexbox or Grid?'],
         userMessageIn: [''],
         lastActive: '',
         profileLink: '<a class="readMore">\></a>',
@@ -172,7 +182,7 @@ const allMembers=[
         joinDate:'30/09/2019',
         status: 'Newbie',
         activity: '',
-        userMessageOut: ['I just don\'t understand....anything.', 'That\'s not strictly true. I know how to speak 6 languages, so I figured... let\'s program in a few more.', 'On mornings like this, I dunno, I just want to go back to bed. Hang on; I am still in bed...'], 
+        userMessageOut: ['I just don\'t understand....anything.', 'That\'s not strictly true. I know how to speak 6 languages, so I figured... let\'s program in a few more.', 'On mornings like this... I dunno, I just want to go back to bed.'], 
         userMessageIn: [''],
         lastActive: '',
         profileLink: '<a class="readMore">\></a>',
@@ -183,12 +193,15 @@ const allMembers=[
 /* ----------  Notifications handling --------
 --------------------------------------------*/ 
 function notifications(){
-    let getNumberNotifications = Math.round(Math.random()* allMembers[0].notifications.length);
-    if (getNumberNotifications === 0){
+    let getNumberNotifications = Math.max(2,Math.round(Math.random()* allMembers[0].notifications.length));
+    //ensure min 2 notifications (but better without restriction -
+    //remove Math.max (2, ) for more realistic behaviour)
+
+    if (getNumberNotifications === 0){//if Math.max, above, removed, also remove the alert box if there are zero notifications selected
         getAlertArea.style.display = "none";        
     }
         while (getNumberNotifications > selectedNotifications.length) {
-  
+            // get a random selection of notification messages (without repeating)
             let selectRandomNumber = Math.floor(Math.random()*getNumberNotifications);
             let randomNotification = allMembers[0].notifications[selectRandomNumber];
         
@@ -210,8 +223,8 @@ function notifications(){
 function notificationsWindow(){//get the expanded notifications window
     selectedNotifications.push(alertAreaText.textContent);//add the alert message back to notifications list and remove alert area
     getAlertArea.style.display = "none";
-    getNotificationsBell.innerHTML = '<img src="icons/icon-bell.svg" height="30" alt="zero new notifications">';
-    for (let i=0; i<selectedNotifications.length;i++){               
+    getNotificationsBell.innerHTML = '<img src="icons/icon-bell.svg" height="30" alt="zero new notifications">';//change bell icon to indicate zero new notifications
+    for (let i=0; i<selectedNotifications.length;i++){    //list the current notifications (with close button)          
         getNotificationsBell.nextElementSibling.innerHTML +=`               
         <li class = "windowMessage">
         <span>${selectedNotifications[i]}</span>
@@ -227,9 +240,9 @@ function notificationsWindow(){//get the expanded notifications window
 
 function memberActivityWidget(){
 
-    let newMemberText = document.querySelector('.newMember');
+    const newMemberText = document.querySelector('.newMember');
     const recentActivityText = document.querySelector('.recentActivity');
-    const firstFourSelector = [];
+    const firstFourSelector = []; //create an array of randomly selected number of members' recent activities
     for (let i=0; i<allMembers.length; i++){
         let member = allMembers[i];
         if (member.activity === 'Recent' && firstFourSelector.length < 4){ 
@@ -237,7 +250,7 @@ function memberActivityWidget(){
             }  
         }
     
-        for (let j=0; j<firstFourSelector.length; j++){
+        for (let j=0; j<firstFourSelector.length; j++){ // from each selected member object, randomly select a message and display truncated
             let fourSelected = firstFourSelector[j];
             let getUserMessage =  (Math.floor(Math.random()* fourSelected.userMessageOut.length));
             let fullMessage = fourSelected.userMessageOut[getUserMessage]
@@ -261,7 +274,7 @@ function memberActivityWidget(){
     
         for (let i=0; i<allMembers.length; i++){
             let member = allMembers[i];
-            if (member.status === 'Newbie' && i<=firstFourSelector.length){
+            if (member.status === 'Newbie' && i<=firstFourSelector.length){ // select and display new members' details (same number of entries as recent activity)
            
                 newMemberText.innerHTML += 
                 `<div class="aNewMember">
@@ -280,7 +293,7 @@ function memberActivityWidget(){
 /*--------------Create live-database simulation ---------------------*/ 
             /* --------------------------------------*/ 
 
-function lastActiveCreator(){
+function lastActiveCreator(){ //randomize the possible recent activity selections (modify members' object entry)
     for (let i=0; i<allMembers.length; i++){
         let randomizer = Math.round(Math.random() * 10) +1;
         allMembers[i].lastActive = `${randomizer} hours ago`;
@@ -301,7 +314,7 @@ function searchUser(){
     const autoCompleteOptions =[];
     let searchBox = document.getElementById('recipient');
     let autocomplete = document.getElementById('dropdown');
-    let suggestion = autocomplete.options[autocomplete.selectedIndex];
+   
    
     // iterate through user name data text to check for user input text match
         searchBox.addEventListener('keydown', function(e) { 
@@ -313,7 +326,7 @@ function searchUser(){
     
             if (inputKey === 'backspace'  && searchEntry.length === 0){
                 searchUser();
-            } else if (inputKey === 'backspace'){//get proper behavious of backspace (delete last letter input)
+            } else if (inputKey === 'backspace'){//get proper behaviour of backspace (delete last letter input)
                 searchEntry.pop();
                 autoCompleteOptions.pop();
                 autocomplete.innerHTML = `<option selected>Do you mean...</option>`;
@@ -338,7 +351,7 @@ function searchUser(){
         }
     });
 
-    //Output the selected suggestion as User Name address and move to message field
+    //Output the selected autocomplete suggestion as User Name address and move focus to message field
      /* --------------------------------------*/ 
 
         autocomplete.addEventListener('change', function(){
@@ -353,40 +366,19 @@ function searchUser(){
    
 }
 
- //--------Add settings to local storage/Delete settings from local storage
+
+ //--------Add settings to local storage/Delete settings from local storage (SAVE/CANCEL buttons)
      /* --------------------------------------*/ 
 
-const manageSettings = ()=>{
-    if (!timezoneSelect.selectedIndex){localStorage.getItem('timezoneIndex')}
-    
-emailSwitch.addEventListener('change', function(){
-if (emailSwitch.checked){
-    console.log("It's on");
-} else if (!emailSwitch.checked){
-        console.log("It's off");
-    }
-});
 
+function saveSettingsLocalStorage(){
+    settingsObject = {email: emailSwitch.checked, profile: profileSwitch.checked, timezone: timezoneSelect.selectedIndex}    
+    localStorage.setItem('settings', JSON.stringify(settingsObject));
+   
+}
 
-profileSwitch.addEventListener('change', function(){
-    if (profileSwitch.checked){
-        console.log("It's on");
-    } else if (!profileSwitch.checked){
-            console.log("It's off");
-        }
-  
-});
-timezoneSelect.addEventListener('change', function(){
-    for (let i=0; i<timezoneSelect.options.length; i++){                                
-        let option = timezoneSelect.options[i];
-        if (option.selected){
-            let storeSelected = (timezoneSelect.selectedIndex); 
-            localStorage.setItem('timezoneIndex', storeSelected);       
-        }
-    }   
-  
-});
-
+function clearSettingsLocalStorage(){
+    localStorage.clear();
 }
 
 
@@ -400,7 +392,7 @@ lastActiveCreator();// simulate user recent activity entries at random
 searchUser(); // provide autocomplete suggestions
 memberActivityWidget();//populate new members and recent activity
 notifications();//populate the message and notification areas
-manageSettings();//save and delete settings info in local storage
+
 
 
 

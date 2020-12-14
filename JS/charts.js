@@ -270,7 +270,7 @@ export function dailyTrafficBarChart() {
                 }]
             },
             options: {
-                
+                animation: {duration: 0},
                 layout: {
                     padding:50,
             },
@@ -278,7 +278,7 @@ export function dailyTrafficBarChart() {
                     display: false
                 },
                 title: {
-                    display: false
+                    display: false,
                 },
                 scales: {
                     scaleLabel:{

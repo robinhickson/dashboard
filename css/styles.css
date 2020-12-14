@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ============================================= */
 /*              Variables                     */
 /* ============================================= */
@@ -397,6 +398,7 @@ h4 {
 }
 
 .sectionHead {
+  display: inline-block;
   padding-bottom: 1em;
   margin-right: auto;
   font-size: calc(0.25rem + 1.5vmax);
@@ -431,7 +433,8 @@ h4 {
 }
 
 .titleTraffic {
-  padding-left: 2rem;
+  padding-left: 0.5rem;
+  padding-top: 1rem;
   padding-bottom: 0;
 }
 
@@ -447,13 +450,11 @@ h4 {
 
 .lineChart {
   flex-grow: 1;
-  position: relative;
   width: 200px;
 }
 
 .barChart {
   flex-grow: 1;
-  position: relative;
   width: 300px;
   border-right: solid 1px rgba(0, 0, 0, 0.2);
   border-top: solid 1px rgba(0, 0, 0, 0.2);
@@ -462,7 +463,6 @@ h4 {
 
 .donutChart {
   flex-grow: 1;
-  position: relative;
   width: 300px;
   border-top: solid 1px rgba(0, 0, 0, 0.2);
   border-bottom: solid 1px rgba(0, 0, 0, 0.2);
@@ -484,6 +484,7 @@ h4 {
   grid-area: charts;
   display: flex;
   flex-flow: column nowrap;
+  margin-top: 1rem;
 }
 
 .header {
@@ -513,6 +514,7 @@ h4 {
   flex-grow: 1;
   padding: 1rem;
   border-radius: 5px;
+  margin-top: 0.5rem;
 }
 
 .navArea {
@@ -575,12 +577,6 @@ h4 {
   animation-fill-mode: forwards;
 }
 
-.avatar {
-  border-radius: 50%;
-  width: 40px;
-  height: 40px;
-}
-
 .logoArea li:nth-child(4) {
   border-right: solid rgba(32, 13, 100, 0.8) 1px;
   height: 50%;
@@ -595,6 +591,8 @@ h4 {
 .windowMessageContainer {
   display: flex;
   flex-flow: column nowrap;
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
+  border-top: none;
   position: absolute;
   top: 10px;
   width: 200px;
@@ -611,17 +609,6 @@ h4 {
   border: solid whitesmoke 1px;
   padding: 2px;
   margin-right: 1rem;
-}
-
-.icon {
-  opacity: 0.5;
-}
-
-.icon:hover, .icon-dash {
-  opacity: 1;
-  padding: 2px;
-  border-left: solid #63cc82 3px;
-  border-radius: 10%;
 }
 
 .alertArea * {
@@ -652,9 +639,12 @@ h4 {
   padding: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .getTwitterData, .getFacebookData, .getGooglePlusData {
+  display: flex;
+  flex-flow: column nowrap;
   padding-right: 1.5em;
   padding-left: 1.5rem;
   font-weight: 700;
@@ -663,13 +653,6 @@ h4 {
 .socialIconWrapper {
   align-self: center;
   min-width: 40px;
-}
-
-.socialSVG {
-  width: 100%;
-  border-radius: 50%;
-  background-color: rgba(32, 13, 100, 0.8);
-  margin-left: 0.5rem;
 }
 
 .socialName {
@@ -690,8 +673,8 @@ h4 {
 .newMembersArea {
   display: flex;
   flex-flow: column nowrap;
-  border-right: solid 1px rgba(0, 0, 0, 0.2);
   border-top: solid 1px rgba(0, 0, 0, 0.2);
+  border-right: solid 1px rgba(0, 0, 0, 0.2);
 }
 
 .newMember {
@@ -714,12 +697,6 @@ h4 {
   border-bottom: solid 1px rgba(221, 221, 221, 0.6);
 }
 
-.newMemberAvatar, .recentMemberAvatar {
-  border-radius: 50%;
-  margin: 0.5rem;
-  height: 40px;
-}
-
 .date {
   margin-left: auto;
 }
@@ -731,10 +708,9 @@ h4 {
 .recentActivityArea {
   display: flex;
   flex-flow: column nowrap;
+  border-top: solid 1px rgba(0, 0, 0, 0.2);
   justify-content: flex-start;
   align-content: flex-start;
-  border-right: solid 1px rgba(0, 0, 0, 0.2);
-  border-top: solid 1px rgba(0, 0, 0, 0.2);
 }
 
 .recentActivity {
@@ -793,8 +769,8 @@ h4 {
 .messageArea {
   display: flex;
   flex-flow: column nowrap;
-  border-right: solid 1px rgba(0, 0, 0, 0.2);
   border-top: solid 1px rgba(0, 0, 0, 0.2);
+  border-right: solid 1px rgba(0, 0, 0, 0.2);
   align-items: center;
 }
 
@@ -806,38 +782,6 @@ h4 {
   justify-content: space-between;
 }
 
-@keyframes rocker {
-  5% {
-    transform: rotate(-30deg);
-  }
-  15% {
-    transform: rotate(30deg);
-  }
-  25% {
-    transform: rotate(-30deg);
-  }
-  35% {
-    transform: rotate(30deg);
-  }
-  45% {
-    transform: rotate(-30deg);
-  }
-  55% {
-    transform: rotate(30deg);
-  }
-  65% {
-    transform: rotate(-30deg);
-  }
-  75% {
-    transform: rotate(30deg);
-  }
-  85% {
-    transform: rotate(-30deg);
-  }
-  95% {
-    transform: rotate(30deg);
-  }
-}
 /* ============================================= */
 /*              Navigation                       */
 /* ============================================= */
@@ -973,6 +917,7 @@ button {
   width: 90%;
   background-color: rgba(32, 13, 100, 0.8);
   padding: 1rem;
+  transition: 0.5s ease-in-out;
 }
 
 button:hover, button:focus {
@@ -995,25 +940,396 @@ button:hover, button:focus {
   width: 36%;
 }
 
+#save:active, #cancel:active {
+  transform: scale(0.9);
+}
+
 #cancel {
   background-color: rgba(119, 119, 119, 0.6);
 }
 
+/*
+* CSS TOGGLE SWITCH
+*
+* Ionuț Colceriu - ghinda.net
+* https://github.com/ghinda/css-toggle-switch
+*
+*/
+/* supported values are px, rem-calc, em-calc
+ */
+/* imports
+ */
+/* Functions
+ */
+/* Shared
+ */
+/* Hide by default
+ */
+.switch-toggle a,
+.switch-light span span {
+  display: none;
+}
+
+/* We can't test for a specific feature,
+ * so we only target browsers with support for media queries.
+ */
+@media only screen {
+  /* Checkbox
+  */
+  .switch-light {
+    position: relative;
+    display: block;
+    /* simulate default browser focus outlines on the switch,
+    * when the inputs are focused.
+    */
+  }
+
+  .switch-light::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+
+  .switch-light *,
+.switch-light *:before,
+.switch-light *:after {
+    box-sizing: border-box;
+  }
+
+  .switch-light a {
+    display: block;
+    transition: all 0.2s ease-out;
+  }
+
+  .switch-light label,
+.switch-light > span {
+    /* breathing room for bootstrap/foundation classes.
+    */
+    line-height: 2em;
+  }
+
+  .switch-light input:focus ~ span a,
+.switch-light input:focus + label {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: Highlight;
+    /* Chrome/Opera gets its native focus styles.
+    */
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+  .switch-light input:focus ~ span a,
+.switch-light input:focus + label {
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+  }
+}
+@media only screen {
+  /* don't hide the input from screen-readers and keyboard access
+  */
+  .switch-light input {
+    position: absolute;
+    opacity: 0;
+    z-index: 3;
+  }
+
+  .switch-light input:checked ~ span a {
+    right: 0%;
+  }
+
+  /* inherit from label
+  */
+  .switch-light strong {
+    font-weight: inherit;
+  }
+
+  .switch-light > span {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    min-height: 2em;
+    /* overwrite 3rd party classes padding
+    * eg. bootstrap .alert
+    */
+    padding: 0;
+    text-align: left;
+  }
+
+  .switch-light span span {
+    position: relative;
+    z-index: 2;
+    display: block;
+    float: left;
+    width: 50%;
+    text-align: center;
+    user-select: none;
+  }
+
+  .switch-light a {
+    position: absolute;
+    right: 50%;
+    top: 0;
+    z-index: 1;
+    display: block;
+    width: 50%;
+    height: 100%;
+    padding: 0;
+  }
+
+  /* bootstrap 4 tweaks
+  */
+  .switch-light.row {
+    display: flex;
+  }
+
+  .switch-light .alert-light {
+    color: #333;
+  }
+
+  .switch-toggle *,
+.switch-toggle *:before,
+.switch-toggle *:after {
+    box-sizing: border-box;
+  }
+
+  .switch-toggle a {
+    display: block;
+    transition: all 0.2s ease-out;
+  }
+
+  .switch-toggle label,
+.switch-toggle > span {
+    /* breathing room for bootstrap/foundation classes.
+    */
+    line-height: 2em;
+  }
+
+  .switch-toggle input:focus ~ span a,
+.switch-toggle input:focus + label {
+    outline-width: 2px;
+    outline-style: solid;
+    outline-color: Highlight;
+    /* Chrome/Opera gets its native focus styles.
+    */
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 0) {
+  .switch-toggle input:focus ~ span a,
+.switch-toggle input:focus + label {
+    outline-color: -webkit-focus-ring-color;
+    outline-style: auto;
+  }
+}
+@media only screen {
+  /* iOS Theme
+  */
+  .switch-ios.switch-light span span {
+    color: #888b92;
+  }
+
+  .switch-ios.switch-light a {
+    left: 0;
+    top: 0;
+    width: 2em;
+    height: 2em;
+    background-color: #fff;
+    border-radius: 100%;
+    border: 0.25em solid #D8D9DB;
+    transition: all 0.2s ease-out;
+  }
+
+  .switch-ios.switch-light > span {
+    display: block;
+    width: 20%;
+    height: 2em;
+    background-color: #D8D9DB;
+    border-radius: 1.75em;
+    transition: all 0.4s ease-out;
+  }
+
+  .switch-ios.switch-light > span span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    opacity: 0;
+    line-height: 1.875em;
+    vertical-align: middle;
+    transition: all 0.2s ease-out;
+  }
+
+  .switch-ios.switch-light > span span:first-of-type {
+    opacity: 1;
+    padding-left: 1.875em;
+  }
+
+  .switch-ios.switch-light > span span:last-of-type {
+    padding-right: 1.875em;
+  }
+
+  .switch-ios.switch-light input:checked ~ span a {
+    left: 100%;
+    border-color: rgba(32, 13, 100, 0.8);
+    margin-left: -2em;
+  }
+
+  .switch-ios.switch-light input:checked ~ span {
+    border-color: rgba(76, 34, 234, 0.8);
+    box-shadow: inset 0 0 0 30px rgba(76, 34, 234, 0.8);
+  }
+
+  .switch-ios.switch-light input:checked ~ span span:first-of-type {
+    opacity: 0;
+  }
+
+  .switch-ios.switch-light input:checked ~ span span:last-of-type {
+    opacity: 1;
+    color: #fff;
+  }
+
+  .switch-ios.switch-toggle {
+    background-color: #D8D9DB;
+    border-radius: 30px;
+    box-shadow: inset rgba(0, 0, 0, 0.1) 0 1px 0;
+  }
+
+  .switch-ios.switch-toggle a {
+    background-color: rgba(76, 34, 234, 0.8);
+    border: 0.125em solid #D8D9DB;
+    border-radius: 1.75em;
+    transition: all 0.12s ease-out;
+  }
+
+  .switch-ios.switch-toggle label {
+    height: 2.4em;
+    color: #888b92;
+    line-height: 2.4em;
+    vertical-align: middle;
+  }
+
+  .switch-ios input:checked + label {
+    color: #3e4043;
+  }
+
+  /* trick to prevent the default checked ripple animation from showing
+  * when the page loads.
+  * the ripples are hidden by default, and shown only when the input is focused.
+  */
+  .switch-light.switch-material.switch-light input ~ span:before,
+.switch-light.switch-material.switch-light input ~ span:after,
+.switch-material.switch-toggle input + label:after {
+    visibility: hidden;
+  }
+
+  .switch-light.switch-material.switch-light input:focus:checked ~ span:before,
+.switch-light.switch-material.switch-light input:focus:not(:checked) ~ span:after,
+.switch-material.switch-toggle input:focus:checked + label:after {
+    visibility: visible;
+  }
+}
+/*# sourceMappingURL=toggle-switch.css.map */
 /* ============================================= */
 /*              Images                           */
 /* ============================================= */
+.avatar {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+}
+
+.newMemberAvatar, .recentMemberAvatar {
+  border-radius: 50%;
+  margin: 0.5rem;
+  height: 40px;
+}
+
+.icon {
+  opacity: 0.5;
+}
+
+.icon:hover, .icon-dash {
+  opacity: 1;
+  padding: 2px;
+  border-left: solid #63cc82 3px;
+  border-radius: 10%;
+}
+
+.socialSVG {
+  width: 100%;
+  border-radius: 50%;
+  background-color: rgba(32, 13, 100, 0.8);
+  margin-left: 0.5rem;
+}
+
+@keyframes rocker {
+  5% {
+    transform: rotate(-30deg);
+  }
+  15% {
+    transform: rotate(30deg);
+  }
+  25% {
+    transform: rotate(-30deg);
+  }
+  35% {
+    transform: rotate(30deg);
+  }
+  45% {
+    transform: rotate(-30deg);
+  }
+  55% {
+    transform: rotate(30deg);
+  }
+  65% {
+    transform: rotate(-30deg);
+  }
+  75% {
+    transform: rotate(30deg);
+  }
+  85% {
+    transform: rotate(-30deg);
+  }
+  95% {
+    transform: rotate(30deg);
+  }
+}
 /* ============================================= */
 /*              Media Queries                    */
 /* ============================================= */
 @media (min-width: 768px) {
   .container {
+    display: grid;
+    grid-template-columns: 1fr 23fr;
+    grid-template-rows: minmax(80px, auto);
+    row-gap: 0;
+    column-gap: 5px;
+    grid-template-areas: "header header " "nav search " "nav alert " "nav charts " "nav social " "nav members ";
     margin: 0 auto;
+  }
+
+  .navArea {
+    grid-area: nav;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    background-color: rgba(32, 13, 100, 0.8);
+    padding: 1rem;
+  }
+
+  .navArea > a {
+    margin-bottom: 2rem;
   }
 }
 @media (min-width: 1024px) {
   .container {
     max-width: 1800px;
+    border: solid 1px rgba(221, 221, 221, 0.6);
     margin: 0 auto;
+  }
+
+  .socialSVG {
+    width: 80%;
+    max-width: 110px;
   }
 }
 

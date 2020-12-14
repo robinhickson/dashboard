@@ -21,13 +21,15 @@
   "nav "    
   "charts "
   "social "
-  "members " 
+  "members "
+  ; 
 }
 
 .chartRegion {  
   grid-area: charts;
   display: flex;
-  flex-flow: column nowrap;  
+  flex-flow: column nowrap;
+  margin-top: 1rem; 
 }
 
 
@@ -62,7 +64,7 @@
   flex-grow:1; 
   padding:1rem;
   border-radius: 5px;
-
+  margin-top: 0.5rem;
   }
 
 .navArea{
@@ -78,8 +80,7 @@
   grid-area: social;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-around;
-  
+  justify-content: space-around; 
 }
 
 
@@ -134,11 +135,6 @@ animation-fill-mode: forwards;
 
 }
 
-.avatar{
-border-radius: 50%;
-width:40px;
-height:40px;
-}
 
 .logoArea li:nth-child(4){ // spacer
   border-right: solid $primary-color 1px;
@@ -152,8 +148,8 @@ height:40px;
  }
 
  .windowMessageContainer{
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex-column-nowrap-border-top;
+  border-top: none;
   position: absolute;
   top: 10px;
   width: 200px;
@@ -171,22 +167,6 @@ height:40px;
   padding: 2px;
   margin-right: 1rem;
  }
-
- //Nav section
-
- .icon{
-  opacity:0.5;
-
- }
-
- .icon:hover, .icon-dash{
-  opacity: 1;
-  padding: 2px;
-  border-left: solid $success 3px;
-  border-radius: 10%;
-
-}
-
 
 
 //Alert section
@@ -209,7 +189,7 @@ height:40px;
   
   display: flex;
   flex-flow: row nowrap;
-  justify-content:space-around;
+  justify-content:space-around;  
 }
 
 
@@ -219,16 +199,20 @@ height:40px;
   flex-flow: row nowrap;
   flex-grow: 1;
   justify-content: space-around;
-  align-items: center;  
+  align-items: center;
+  
   background-color: $secondary-color-light; 
   border: solid $secondary-color 1px;
   border-radius: 3px;
   padding: 0.5rem;
   margin-left: 1rem;
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
-.getTwitterData, .getFacebookData, .getGooglePlusData{  
+.getTwitterData, .getFacebookData, .getGooglePlusData{ 
+  display: flex;
+  flex-flow: column nowrap; 
   padding-right: 1.5em;
   padding-left: 1.5rem;
   font-weight: $font-bold;
@@ -236,14 +220,7 @@ height:40px;
 
 .socialIconWrapper{
   align-self: center;
-  min-width: 40px;  
-}
-
-.socialSVG{ 
-  width: 100%;
-  border-radius: 50%;
-  background-color: $primary-color;
-  margin-left: 0.5rem;
+  min-width: 40px; 
 }
 
 .socialName{
@@ -265,14 +242,10 @@ flex-grow: 1;
 
 // //New Members area
   .newMembersArea{
-    display: flex;
-    flex-flow: column nowrap;
-   
-    border-right: solid 1px rgba(0,0,0,0.2);
-    border-top: solid 1px rgba(0,0,0,0.2);
-   
-    
+    @include flex-column-nowrap-border-top;
+    border-right: solid 1px rgba(0,0,0,0.2); 
   }
+
       .newMember{
         display:flex;        
         flex-flow: column nowrap;
@@ -296,12 +269,7 @@ flex-grow: 1;
         
       }
 
-      .newMemberAvatar, .recentMemberAvatar{
-        border-radius: 50%;
-        margin:0.5rem;
-        height: 40px;
-      }
-
+    
       .date{
         margin-left:auto;        
       }
@@ -313,12 +281,9 @@ flex-grow: 1;
 //       //Recent activity area
 
 .recentActivityArea{
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex-column-nowrap-border-top;
   justify-content: flex-start;
-  align-content: flex-start;
-  border-right: solid 1px rgba(0,0,0,0.2);
-  border-top: solid 1px rgba(0,0,0,0.2);
+  align-content: flex-start;  
 }
     .recentActivity{
       display:flex;        
@@ -381,10 +346,8 @@ flex-grow: 1;
 //Message Area --- see forms
 
 .messageArea{ 
-  display: flex;
-  flex-flow: column nowrap;
+  @include flex-column-nowrap-border-top;
   border-right: solid 1px rgba(0,0,0,0.2);
-  border-top: solid 1px rgba(0,0,0,0.2);
   align-items: center;
 
 }
@@ -394,36 +357,9 @@ flex-grow: 1;
 // Settings area --- see forms
 
   .settingsArea{
-    display: flex;
-    flex-flow: column nowrap;
-    border-top: solid 1px rgba(0,0,0,0.2);
+    @include flex-column-nowrap-border-top;
     flex-grow: 1;
     justify-content: space-between;
   }
 
   
-
-  //Animation bell icon on hover
-  @keyframes rocker{
-    0% {}
-    5% { transform: rotate(-30deg);}
-    10% {}
-    15% { transform: rotate(30deg);}
-    20% {}
-    25% { transform: rotate(-30deg);}
-    30% {}
-    35% { transform: rotate(30deg);}
-    40% {}
-    45% { transform: rotate(-30deg);}
-    50% {}
-    55% { transform: rotate(30deg);}
-    60% {}
-    65% { transform: rotate(-30deg);}
-    70% {}
-    75% { transform: rotate(30deg);}
-    80% {}
-    85% { transform: rotate(-30deg);}
-    90% {}
-    95% { transform: rotate(30deg);}
-   100% {}
-  }
