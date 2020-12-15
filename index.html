@@ -45,12 +45,12 @@
         <nav class="navArea">
             <a href="#"><img class="icon icon-dash" src="icons/icon-dashboard.svg" height="40"
                     alt="dashboard page icon"></a>
-            <a href="#"><img class="icon" src="icons/icon-members.svg" height="40" alt="members page icon"></a>
-            <a href="#"><img class="icon" src="icons/icon-visits.svg" height="40" alt="dashboard icon"></a>
-            <a href="#"><img class="icon" src="icons/icon-settings.svg" height="40" alt="settings page icon"></a>
+            <a href="#membersActivity"><img class="icon" src="icons/icon-members.svg" height="40" alt="members page icon"></a>
+            <a href="#chartRegion"><img class="icon" src="icons/icon-visits.svg" height="40" alt="dashboard icon"></a>
+            <a href="#settings"><img class="icon" src="icons/icon-settings.svg" height="40" alt="settings page icon"></a>
         </nav>
 
-        <section class="chartRegion">                           
+        <section id ="chartRegion" class="chartRegion">                           
                 <div class="tabs">
                     <span class="titleTraffic sectionHead">TRAFFIC</span>
                     <span><a href="#" class="hourly tab"> Hourly</a></span>
@@ -120,7 +120,7 @@
             </div>
         </section>
 
-        <section class="membersActivity">
+        <section id="membersActivity" class="membersActivity">
             <div class="membersMessages">
                 <section class="newMembersArea">
                     <h2 class= "sectionHead">NEW MEMBERS</h2>
@@ -134,29 +134,29 @@
                     <form class="messageForm">    
                         <p class="hint">* is required field</p>
                         <div class="messageRecipient">
-                            <label for="recipient">User Name: *</label>
+                            <label for="recipient"></label>
                             <div class="autocompleteWrapper">
-                                <input type="text" id="recipient" name="user-recipient" placeholder="Search for user" required >
-                                <select id="dropdown"></select>
+                                <input type="text" id="recipient" name="user-recipient" placeholder="*Search for user" required >
+                                <div id="dropdown"></div>
                             </div>
                         </div>
                         <div class="userMessageArea">
-                            <label for="userMessage">Message: *</label>
-                            <textarea id="userMessage" name="userMessage" style="resize:none" cols="30" rows="10"  required wrap="hard" placeholder="Message to user..." maxlength="300"></textarea>
+                            <label for="userMessage"></label>
+                            <textarea id="userMessage" name="userMessage" style="resize:none" cols="30" rows="10"  required wrap="hard" placeholder="* Message to user..." maxlength="300"></textarea>
                             <button class="button-send" id="send" >SEND</button>
                         </div>   
                     </form>
                 </section>
             </div>
 
-            <div class="activitySettings">
+            <div  class="activitySettings">
                 <section class="recentActivityArea">
                     <h2 class= "sectionHead">RECENT ACTIVITY</h2>
                     <div class="recentActivity">
 
                     </div>
                 </section>
-                <section class="settingsArea">
+                <section id="settings" class="settingsArea">
                     <h2 class= "sectionHead">SETTINGS</h2>
                    
                     <div class="custom-buttons-wrapper">
@@ -243,8 +243,9 @@
         </section>        
     </div>
 
-    <script type="module" src="JS/app.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.js"></script>
+    <script src="JS/app.js"></script>
+   
 
 
 </body>

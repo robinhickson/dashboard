@@ -864,19 +864,26 @@ input:hover, textarea:hover {
 }
 
 .autocompleteWrapper {
-  display: flex;
-  flex-flow: column nowrap;
+  display: inline-block;
+  position: relative;
+  width: 100%;
 }
 
 #dropdown {
-  width: 50%;
-  border: 1px solid rgba(119, 119, 119, 0.6);
-  border-radius: 5px;
   background-color: rgba(221, 221, 221, 0.6);
   color: rgba(32, 13, 100, 0.8);
   font-style: italic;
   display: none;
-  margin: 1rem auto;
+  position: absolute;
+  top: 40px;
+  left: 15px;
+  z-index: 101;
+}
+
+#dropdown > div {
+  font-weight: 700;
+  background-color: rgba(32, 13, 100, 0.8);
+  color: whitesmoke;
 }
 
 .timezone-field {

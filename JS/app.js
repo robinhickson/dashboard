@@ -2,8 +2,367 @@
 /*jshint esversion: 6 */
 /* ----------  CHART AREA - CHART.JS --------
 --------------------------------------------*/
+//default charts config
 
-import {webTrafficChartWeekly, webTrafficChartDaily, webTrafficChartMonthly, webTrafficChartHourly, dailyTrafficBarChart, mobileUsersDonutChart} from './charts.js';
+Chart.defaults.global.defaultFontSize = 8;
+Chart.defaults.global.defaultFontFamily = 'Lato';
+Chart.defaults.global.defaultFontStyle = 'bold';
+let trafficWeekly;
+let trafficHourly;
+let trafficMonthly;
+let trafficDaily;
+let barChart;
+let donutChart;
+
+//line chart Web traffic
+
+
+function webTrafficChartWeekly() {
+const ctx = document.getElementById('trafficLineChart');
+    trafficWeekly = new Chart(ctx, {
+        type: 'line',        
+        data: {
+            labels: [ '16-22', '23-29', '30-5', '6-12', '13-19', '20-26', '27-3', '4-10', '11-17', '18-24', '25-31', '1-7'],
+            datasets: [{                
+                data: [ 1200, 680, 950, 1200, 1250, 960, 1100, 1400, 1800, 2300, 1800, 2000],
+                backgroundColor:          
+                    'rgba(100, 100, 200, 0.4)',                  
+                borderColor: 
+                    'rgba(154, 162, 255, 1)',
+                borderWidth: 1,
+                lineTension: 0,
+                pointRadius: 4,
+                pointBorderWidth: 2,
+                pointBackgroundColor: 'rgba(255,255,255,1)',
+            }]
+        },
+        options: {
+            
+            layout: {
+                padding:50,
+        },
+            legend: {
+                display: false
+            },
+            title: {
+                display: false
+            },
+            scales: {
+                scaleLabel:{
+                    align: 'right'
+                },
+                xAxes: [{
+                    gridLines:{
+                        tickMarkLength: 0,
+                        gridOffsetGridLines: true,
+                    },
+                    ticks: {
+                        beginAtZero: false,
+                        labelOffset: 0,
+                        padding: 10,
+                    }
+                }],
+                yAxes: [{
+                    gridLines:{
+                            tickMarkLength: 0,
+                    },
+                    ticks: {
+                        beginAtZero: false,
+                        stepSize: 500,
+                        padding: 10
+                    }
+                }]
+            }
+        }
+    });
+
+}
+
+function webTrafficChartDaily() {
+    const ctx = document.getElementById('trafficLineChart');
+       trafficDaily = new Chart(ctx, {
+            type: 'line',        
+            data: {
+                labels: [ 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday',],
+                datasets: [{                
+                    data: [ 120, 60, 90, 120, 130, 90, 110, ],
+                    backgroundColor:          
+                        'rgba(100, 100, 200, 0.4)',                  
+                    borderColor: 
+                        'rgba(154, 162, 255, 1)',
+                    borderWidth: 1,
+                    lineTension: 0,
+                    pointRadius: 4,
+                    pointBorderWidth: 2,
+                    pointBackgroundColor: 'rgba(255,255,255,1)',
+                }]
+            },
+            options: {
+                
+                layout: {
+                    padding:50,
+            },
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: false
+                },
+                scales: {
+                    scaleLabel:{
+                        align: 'right'
+                    },
+                    xAxes: [{
+                        gridLines:{
+                            tickMarkLength: 0,
+                            gridOffsetGridLines: true,
+                        },
+                        ticks: {
+                            beginAtZero: false,
+                            labelOffset: 0,
+                            padding: 10
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines:{
+                                tickMarkLength: 0,
+                            },
+                        ticks: {
+                            beginAtZero: true,
+                            stepSize: 20,
+                            padding: 10
+                        }
+                    }]
+                }
+            }
+        });
+    
+}
+
+function webTrafficChartHourly() {
+        const ctx = document.getElementById('trafficLineChart');
+            trafficHourly = new Chart(ctx, {
+                type: 'line',        
+                data: {
+                    labels: [ '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '18', '17', '18', '19', '20', '21', '22', '23','24' ],
+                    datasets: [{                
+                        data: [ 5, 7, 6, 3, 2, 2, 1, 3, 6, 8, 9, 11, 11, 14, 12, 11, 15, 14, 16, 13, 10, 8, 8, 6, 5, 4 ],
+                        backgroundColor:          
+                            'rgba(100, 100, 200, 0.4)',                  
+                        borderColor: 
+                            'rgba(154, 162, 255, 1)',
+                        borderWidth: 1,
+                        lineTension: 0,
+                        pointRadius: 4,
+                        pointBorderWidth: 2,
+                        pointBackgroundColor: 'rgba(255,255,255,1)',
+                    }]
+                },
+                options: {
+                    
+                    layout: {
+                        padding:50,
+                },
+                    legend: {
+                        display: false
+                    },
+                    title: {
+                        display: false
+                    },
+                    scales: {
+                        scaleLabel:{
+                            align: 'right'
+                        },
+                        xAxes: [{
+                            gridLines:{
+                                tickMarkLength: 0,
+                                gridOffsetGridLines: true,
+                            },
+                            ticks: {
+                                beginAtZero: false,
+                                labelOffset: 0,
+                                padding: 10
+                            }
+                        }],
+                        yAxes: [{
+                            gridLines:{
+                                    tickMarkLength: 0,
+                                },
+                            ticks: {
+                                beginAtZero: false,
+                                stepSize: 1,
+                                padding: 10
+                            }
+                        }]
+                    }
+                }
+            });
+        
+}
+
+ function webTrafficChartMonthly() {
+            const ctx = document.getElementById('trafficLineChart');
+                trafficMonthly = new Chart(ctx, {
+                    type: 'line',        
+                    data: {
+                        labels: [ 'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                        datasets: [{                
+                            data: [ 1000, 850, 900, 1000, 1100, 920, 1000, 1100, 1000, 1320, 1300, 1200],
+                            backgroundColor:          
+                                'rgba(100, 100, 200, 0.4)',                  
+                            borderColor: 
+                                'rgba(154, 162, 255, 1)',
+                            borderWidth: 1,
+                            lineTension: 0,
+                            pointRadius: 4,
+                            pointBorderWidth: 2,
+                            pointBackgroundColor: 'rgba(255,255,255,1)',
+                        }]
+                    },
+                    options: {
+                        
+                        layout: {
+                            padding:50,
+                    },
+                        legend: {
+                            display: false
+                        },
+                        title: {
+                            display: false
+                        },
+                        scales: {
+                            scaleLabel:{
+                                align: 'right'
+                            },
+                            xAxes: [{
+                                gridLines:{
+                                    tickMarkLength: 0,
+                                    gridOffsetGridLines: true,
+                                },
+                                ticks: {
+                                    beginAtZero: false,
+                                    labelOffset: 0,
+                                    padding: 10
+                                }
+                            }],
+                            yAxes: [{
+                                gridLines:{
+                                        tickMarkLength: 0,
+                                    },
+                                ticks: {
+                                    beginAtZero: false,
+                                    stepSize: 100,
+                                    padding: 10
+                                }
+                            }]
+                        }
+                    }
+                });
+            
+}
+
+
+//bar chart daily traffic
+
+ function dailyTrafficBarChart() {
+    const ctx = document.getElementById('barChart');
+       barChart = new Chart(ctx, {
+            type: 'bar',        
+            data: {
+                labels: [ 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                datasets: [{                
+                    data: [ 50, 100, 150, 125, 210, 200, 75],
+                    backgroundColor:          
+                        'rgba(100, 100, 200, 1)',    
+                }]
+            },
+            options: {
+                animation: {duration: 0},
+                layout: {
+                    padding:50,
+            },
+                legend: {
+                    display: false
+                },
+                title: {
+                    display: false,
+                },
+                scales: {
+                    scaleLabel:{
+                        align: 'right'
+                    },
+                    xAxes: [{
+                        gridLines:{
+                            tickMarkLength: 0,
+                            gridOffsetGridLines: true,
+                        },
+                        ticks: {
+                            beginAtZero: false,
+                            labelOffset: 0,
+                            padding: 10
+                        }
+                    }],
+                    yAxes: [{
+                        gridLines:{
+                                tickMarkLength: 0,
+                            },
+                        ticks: {
+                            beginAtZero: false,
+                            stepSize: 100,
+                            padding: 10
+                        }
+                    }]
+                }
+            }
+        });
+    
+}
+
+
+//donut chart mobile users
+
+function mobileUsersDonutChart() {
+    
+    const ctx = document.getElementById('donutChart');
+   
+        donutChart = new Chart(ctx, {
+            
+            type: 'doughnut',        
+            data: {
+                labels: [ 'Phones', 'Tablets', 'Desktop',],
+                datasets: [{                
+                    data: [ 15, 15, 70,],
+                    backgroundColor: [  
+                    'rgba(80, 220, 220, 1)',      
+                    'rgba(100, 255, 200, 1)',                    
+                    'rgba(2, 100, 200, 1)',
+                    ],
+                    borderWidth: 0,
+                  
+                }]
+            },
+            options: {
+                
+                layout: {
+                    padding:50,
+            },
+                legend: {
+                    display: true,
+                    position: 'right',
+                    
+                    labels:{
+                        boxWidth: 10,
+                        fontSize: 10,
+                        }
+                },
+                title: {
+                    display: false
+                },
+            
+            }
+        });
+    
+}
 
 
 //Bar chart - daily traffic
@@ -111,6 +470,7 @@ getListener.addEventListener('click', (e) => {
                         alert("Please fill out message field before sending");
                         } else {
                         alert(`Message successfully sent to: ${user.value}`);
+                        user.value = message.value = '';
                         }   
                 } else if (targetClass==='button-save'){
                     saveSettingsLocalStorage();
@@ -328,7 +688,7 @@ function searchUser(){
             } else if (inputKey === 'backspace'){//get proper behaviour of backspace (delete last letter input)
                 searchEntry.pop();
                 autoCompleteOptions.pop();
-                autocomplete.innerHTML = `<option selected>Do you mean...</option>`;
+                autocomplete.innerHTML = ``;
             } else {
                 autocomplete.style.display = 'block';
                 searchEntry.push(inputKey);
@@ -338,10 +698,10 @@ function searchUser(){
                   for (let j=0; j<allMembers[i].name.length;j++){                      
                     let namePartial = allMembers[i].name.slice(j,j+searchValue.length).toLowerCase();//main part of search; iterate through all name arrays as partials
                     if ((searchValue === namePartial) && !autoCompleteOptions.includes(allMembers[i].name)){// check match and not already included 
-                        autocomplete.innerHTML =`<option selected>Do you mean...</option>`;
+                        autocomplete.innerHTML =``;
                         autoCompleteOptions.push(allMembers[i].name);                    
                         for (let k=0; k<autoCompleteOptions.length; k++){                        
-                        autocomplete.innerHTML += `<option>${autoCompleteOptions[k]}</option>`;//show the autocomplete suggestions                        
+                        autocomplete.innerHTML += `<div>${autoCompleteOptions[k]}</div>`;//show the autocomplete suggestions                        
                         }                    
                     }
                   }                 
@@ -353,19 +713,13 @@ function searchUser(){
     //Output the selected autocomplete suggestion as User Name address and move focus to message field
      /* --------------------------------------*/ 
 
-        autocomplete.addEventListener('change', function(){
-        for (let i=0; i<autocomplete.options.length; i++){                                
-            let option = autocomplete.options[i];
-            if (option.selected){
-                searchBox.value = option.text;
-                message.focus();            
-            }    
-        }
-    });  
+        autocomplete.addEventListener('click', e=>{
+            autocomplete.style.display="none";
+            searchBox.value = e.target.textContent;
+            message.focus(); 
+    });
+}  
    
-}
-
-
  //--------Add settings to local storage/Delete settings from local storage (SAVE/CANCEL buttons)
      /* --------------------------------------*/ 
 
@@ -391,29 +745,3 @@ lastActiveCreator();// simulate user recent activity entries at random
 searchUser(); // provide autocomplete suggestions
 memberActivityWidget();//populate new members and recent activity
 notifications();//populate the message and notification areas
-
-
-
-
-
-
-
-
-
-
-
-
-
-           
-    
-
-   
-     
-     
-    
-   
-
-
-
-
-
